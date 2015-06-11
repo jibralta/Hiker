@@ -14,17 +14,27 @@ class HikeControlViewController: UIViewController {
     // Start/Stop
     @IBOutlet weak var startStop: UIButton!
     // Running time
-    @IBOutlet weak var timeLegendBackground: UIView!
-    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var runningTime: UILabel!
+    @IBOutlet weak var runningTimeLegendConstraint: NSLayoutConstraint!
+    @IBOutlet weak var runningTimeConstraint: NSLayoutConstraint!
     // Altitude
-    @IBOutlet weak var altitudeLegendBackground: UIView!
-    @IBOutlet weak var altitudeLabel: UILabel!
+    @IBOutlet weak var altitude: UILabel!
+    @IBOutlet weak var altitudeLegendConstraint: NSLayoutConstraint!
+    @IBOutlet weak var altitudeConstraint: NSLayoutConstraint!
+    
     // Steps
-    @IBOutlet weak var stepsLegendBackground: UIView!
-    @IBOutlet weak var stepsLabel: UILabel!
+    @IBOutlet weak var steps: UILabel!
+    @IBOutlet weak var stepsLegendConstraint: NSLayoutConstraint!
+    @IBOutlet weak var stepsConstraint: NSLayoutConstraint!
     // Start time
-    @IBOutlet weak var startTimeLegendBackground: UIView!
-    @IBOutlet weak var startTimeLabel: UILabel!
+    @IBOutlet weak var startTime: UILabel!
+    @IBOutlet weak var startTimeLegendConstraint: NSLayoutConstraint!
+    @IBOutlet weak var startTimeConstraint: NSLayoutConstraint!
+    
+    let legendOffScreenConstant: CGFloat = -300
+    let labelOnScreenShiftConstant: CGFloat = -20
+    let legendOnScreenConstant: CGFloat = 8
+    let labelOffScreenShiftConstant: CGFloat = 250
     
     var altimeter = CMAltimeter()
     var pedometer = CMPedometer()
@@ -36,16 +46,8 @@ class HikeControlViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let rotates = [timeLabel, altitudeLabel, stepsLabel, startTimeLabel]
-        let corners = [timeLegendBackground, altitudeLegendBackground, stepsLegendBackground, startTimeLegendBackground, startStop]
-        for corner in corners {
-            corner.layer.cornerRadius = 3.0
-        }
-        
-        for rotate in rotates {
-            rotate.transform = CGAffineTransformMakeRotation(CGFloat(-M_PI_2))
-        }
+//        self.startStop.hidden = true
+//        self.runningTime.alpha = 0.0
     }
 
     override func didReceiveMemoryWarning() {
@@ -55,18 +57,55 @@ class HikeControlViewController: UIViewController {
 
     @IBAction func toggleStartStop(sender: AnyObject) {
         if !hiking {
-            startDate = NSDate()
+//            removeStartButton()
+            self.setActiveLabels(true)
             startDataCollection()
+            startDate = NSDate()
+            /*
             startStop.setTitle("Stop", forState: .Normal)
             startStop.backgroundColor = UIColor(red: 255/255, green: 99/255, blue: 107/255, alpha: 1.0)
+            */
             hiking = true
         } else {
+            self.setActiveLabels(false)
             endDate = NSDate()
             stopDataCollection()
             startStop.setTitle("Start", forState: .Normal)
             startStop.backgroundColor = UIColor(red: 46/255, green: 218/255, blue: 84/255, alpha: 1.0)
             hiking = false
         }
+    }
+    
+    func setActiveLabels(active: Bool) {
+        let labelsArr = [(self.runningTimeLegendConstraint, self.runningTimeConstraint),
+            (self.altitudeLegendConstraint, self.altitudeConstraint),
+            (self.stepsLegendConstraint, self.stepsConstraint),
+            (self.startTimeLegendConstraint, self.startTimeConstraint)]
+        for labelSet in labelsArr {
+            shiftLabelsToActive(active, legendConstraint: labelSet.0, valueConstraint: labelSet.1)
+        }
+    }
+    
+    func removeStartButton() {
+        self.view.addConstraint(NSLayoutConstraint(item: self.startStop, attribute: .Top, relatedBy: .Equal, toItem: self.view, attribute: .Bottom, multiplier: 1.0, constant: 200))
+        // FIX: self in animation block could cause memory leak
+        UIView.animateWithDuration(0.5, animations: { self.startStop.layoutIfNeeded() }, completion: nil)
+        
+        let pause = UIButton()
+        pause.translatesAutoresizingMaskIntoConstraints = false
+        pause.setTitle("Pause", forState: .Normal)
+        pause.setTitleColor(UIColor.blackColor(), forState: .Normal)
+        pause.titleLabel?.font = UIFont(name: "SanFrancisco-Display", size: 25.0)
+        self.view.addSubview(pause)
+        
+        // Position offscreen
+        self.view.addConstraint(NSLayoutConstraint(item: pause, attribute: .Trailing, relatedBy: .Equal, toItem: self.view, attribute: .Leading, multiplier: 1.0, constant: 0))
+        self.view.addConstraint(NSLayoutConstraint(item: pause, attribute: .Bottom, relatedBy: .Equal, toItem: self.view, attribute: .Bottom, multiplier: 1.0, constant: 0))
+        pause.layoutIfNeeded()
+        
+        // Animate onscreen
+//        self.view.addConstraint(NSLayoutConstraint(item: pause, attribute: .Leading, relatedBy: .Equal, toItem: self.view, attribute: .Leading, multiplier: 1.0, constant: 0))
+//        UIView.animateWithDuration(0.5, animations: { pause.layoutIfNeeded() }, completion: nil)
     }
     
     func startDataCollection() {
@@ -115,7 +154,7 @@ class HikeControlViewController: UIViewController {
                 } else {
                     print("Number of steps: \(pedometerData!.numberOfSteps)")
                     dispatch_async(dispatch_get_main_queue()) {
-//                        self!.steps.text = "\(pedometerData.numberOfSteps)"
+                        self.steps.text = "\(pedometerData!.numberOfSteps)"
                     }
                 }
             }
@@ -138,6 +177,25 @@ class HikeControlViewController: UIViewController {
                     }
                 }
             }
+        }
+    }
+    
+    func shiftLabelsToActive(active: Bool, legendConstraint: NSLayoutConstraint, valueConstraint: NSLayoutConstraint) {
+        dispatch_async(dispatch_get_main_queue()) {
+            
+            let legendShift: CGFloat
+            let labelShift: CGFloat
+            if active {
+                legendShift = self.legendOffScreenConstant
+                labelShift = self.labelOnScreenShiftConstant
+            } else {
+                legendShift = self.legendOnScreenConstant
+                labelShift = self.labelOffScreenShiftConstant
+            }
+            legendConstraint.constant = legendShift
+            valueConstraint.constant = labelShift
+            
+            UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 5, options: UIViewAnimationOptions.CurveEaseOut, animations: { self.view.layoutIfNeeded() }, completion: nil)
         }
     }
 }

@@ -7,18 +7,15 @@
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <customFonts key="customFonts">
-        <mutableArray key="SanFranciscoDisplay-Regular.otf">
-            <string>SanFranciscoDisplay-Regular</string>
-            <string>SanFranciscoDisplay-Regular</string>
-            <string>SanFranciscoDisplay-Regular</string>
-            <string>SanFranciscoDisplay-Regular</string>
-            <string>SanFranciscoDisplay-Regular</string>
-        </mutableArray>
-        <mutableArray key="SanFranciscoText-Light.otf">
-            <string>SanFranciscoText-Light</string>
-            <string>SanFranciscoText-Light</string>
-            <string>SanFranciscoText-Light</string>
-            <string>SanFranciscoText-Light</string>
+        <mutableArray key="SanFranciscoText-Regular.otf">
+            <string>SanFranciscoText-Regular</string>
+            <string>SanFranciscoText-Regular</string>
+            <string>SanFranciscoText-Regular</string>
+            <string>SanFranciscoText-Regular</string>
+            <string>SanFranciscoText-Regular</string>
+            <string>SanFranciscoText-Regular</string>
+            <string>SanFranciscoText-Regular</string>
+            <string>SanFranciscoText-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -34,245 +31,174 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ni3-nu-e4i" userLabel="Time">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I2h-cU-cFS" userLabel="Status Bar">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="20"/>
+                                <color key="backgroundColor" red="0.087341880720000001" green="0.85098039219999999" blue="0.46987871339999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="jqa-K7-Ao5"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ni3-nu-e4i" userLabel="Running Time">
                                 <rect key="frame" x="0.0" y="20" width="600" height="120"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:34" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5DJ-lQ-pG7">
-                                        <rect key="frame" x="450" y="21" width="129.5" height="78"/>
-                                        <fontDescription key="fontDescription" name="SanFranciscoText-Light" family="San Francisco Text" pointSize="65"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Running Time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wXW-12-IHa">
+                                        <rect key="frame" x="8" y="36" width="250.5" height="48"/>
+                                        <fontDescription key="fontDescription" name="SanFranciscoText-Regular" family="San Francisco Text" pointSize="40"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Uo-CB-JMf" userLabel="Time Legend">
-                                        <rect key="frame" x="-10" y="12" width="40" height="96"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RN0-zD-ulN">
-                                                <rect key="frame" x="5" y="37" width="40" height="23"/>
-                                                <fontDescription key="fontDescription" name="SanFranciscoDisplay-Regular" family="San Francisco Display" pointSize="19"/>
-                                                <color key="textColor" red="0.087341880720000001" green="0.85098039219999999" blue="0.46987871339999998" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="centerX" secondItem="RN0-zD-ulN" secondAttribute="centerX" constant="-5" id="7Zp-fX-KX4"/>
-                                            <constraint firstAttribute="centerY" secondItem="RN0-zD-ulN" secondAttribute="centerY" id="ev4-ln-Dsw"/>
-                                            <constraint firstAttribute="width" constant="40" id="scw-2i-DJg"/>
-                                        </constraints>
-                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5DJ-lQ-pG7">
+                                        <rect key="frame" x="713" y="21" width="137" height="78"/>
+                                        <fontDescription key="fontDescription" name="SanFranciscoText-Regular" family="San Francisco Text" pointSize="65"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.087341880718646431" green="0.85098039215686272" blue="0.46987871338912435" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="5DJ-lQ-pG7" firstAttribute="trailing" secondItem="Ni3-nu-e4i" secondAttribute="trailing" constant="-20" id="Es0-dd-VXn"/>
-                                    <constraint firstAttribute="centerX" secondItem="5DJ-lQ-pG7" secondAttribute="centerX" id="XF7-4x-4Ui"/>
-                                    <constraint firstAttribute="centerY" secondItem="5DJ-lQ-pG7" secondAttribute="centerY" id="jIg-8f-gNp"/>
-                                    <constraint firstItem="1Uo-CB-JMf" firstAttribute="height" secondItem="Ni3-nu-e4i" secondAttribute="height" multiplier="4:5" id="m5y-dj-rec"/>
-                                    <constraint firstItem="1Uo-CB-JMf" firstAttribute="leading" secondItem="Ni3-nu-e4i" secondAttribute="leading" constant="-10" id="u7t-xF-SgA"/>
-                                    <constraint firstAttribute="centerY" secondItem="1Uo-CB-JMf" secondAttribute="centerY" id="xdE-ac-05G"/>
+                                    <constraint firstItem="wXW-12-IHa" firstAttribute="centerY" secondItem="Ni3-nu-e4i" secondAttribute="centerY" id="eSW-8q-HqN"/>
+                                    <constraint firstItem="wXW-12-IHa" firstAttribute="leading" secondItem="Ni3-nu-e4i" secondAttribute="leading" constant="8" id="iSh-LU-aGX"/>
+                                    <constraint firstItem="5DJ-lQ-pG7" firstAttribute="trailing" secondItem="Ni3-nu-e4i" secondAttribute="trailing" constant="250" id="mPy-tE-lAi"/>
+                                    <constraint firstItem="5DJ-lQ-pG7" firstAttribute="centerY" secondItem="Ni3-nu-e4i" secondAttribute="centerY" id="zSq-En-6s9"/>
                                 </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="XF7-4x-4Ui"/>
-                                    </mask>
-                                </variation>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yoq-hN-fyp" userLabel="Altitude">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ygl-ix-v4g" userLabel="Altitude">
                                 <rect key="frame" x="0.0" y="140" width="600" height="120"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1,776ft" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AuV-t2-pwW">
-                                        <rect key="frame" x="388" y="21" width="191.5" height="78"/>
-                                        <fontDescription key="fontDescription" name="SanFranciscoText-Light" family="San Francisco Text" pointSize="65"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Altitude" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qwg-Nd-lnX">
+                                        <rect key="frame" x="8" y="33" width="162.5" height="54"/>
+                                        <fontDescription key="fontDescription" name="SanFranciscoText-Regular" family="San Francisco Text" pointSize="45"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f5r-zE-mZd" userLabel="Altitude Legend">
-                                        <rect key="frame" x="-10" y="12" width="40" height="96"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Altitude" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rhc-ng-UBW">
-                                                <rect key="frame" x="-7" y="37" width="64" height="23"/>
-                                                <fontDescription key="fontDescription" name="SanFranciscoDisplay-Regular" family="San Francisco Display" pointSize="19"/>
-                                                <color key="textColor" red="0.98431372549999996" green="0.4823529412" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="centerX" secondItem="Rhc-ng-UBW" secondAttribute="centerX" constant="-5" id="bWX-de-FNv"/>
-                                            <constraint firstAttribute="width" constant="40" id="d1u-1w-Cbl"/>
-                                            <constraint firstAttribute="centerY" secondItem="Rhc-ng-UBW" secondAttribute="centerY" id="o9V-RU-dLu"/>
-                                        </constraints>
-                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0ft" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O6b-5Y-Ih7">
+                                        <rect key="frame" x="761.5" y="21" width="88.5" height="78"/>
+                                        <fontDescription key="fontDescription" name="SanFranciscoText-Regular" family="San Francisco Text" pointSize="65"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.98431372549019602" green="0.4823529411764706" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.98431372549999996" green="0.4823529412" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="centerX" secondItem="AuV-t2-pwW" secondAttribute="centerX" id="FDu-9H-ifV"/>
-                                    <constraint firstAttribute="trailing" secondItem="AuV-t2-pwW" secondAttribute="trailing" id="KfX-cB-7ug"/>
-                                    <constraint firstAttribute="centerY" secondItem="AuV-t2-pwW" secondAttribute="centerY" id="SYl-dY-CMh"/>
-                                    <constraint firstItem="f5r-zE-mZd" firstAttribute="height" secondItem="Yoq-hN-fyp" secondAttribute="height" multiplier="4:5" id="aUL-7q-PtT"/>
-                                    <constraint firstAttribute="centerY" secondItem="f5r-zE-mZd" secondAttribute="centerY" id="fvc-hA-n32"/>
-                                    <constraint firstItem="f5r-zE-mZd" firstAttribute="leading" secondItem="Yoq-hN-fyp" secondAttribute="leading" constant="-10" id="o1W-2i-0Il"/>
+                                    <constraint firstAttribute="centerY" secondItem="O6b-5Y-Ih7" secondAttribute="centerY" id="Jef-Ze-O1h"/>
+                                    <constraint firstItem="O6b-5Y-Ih7" firstAttribute="trailing" secondItem="ygl-ix-v4g" secondAttribute="trailing" constant="250" id="SY8-dy-f86"/>
+                                    <constraint firstAttribute="centerY" secondItem="Qwg-Nd-lnX" secondAttribute="centerY" id="uC2-y7-5SX"/>
+                                    <constraint firstItem="Qwg-Nd-lnX" firstAttribute="leading" secondItem="ygl-ix-v4g" secondAttribute="leading" constant="8" id="zxh-L9-Tvw"/>
                                 </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="FDu-9H-ifV"/>
-                                        <exclude reference="KfX-cB-7ug"/>
-                                    </mask>
-                                </variation>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gey-VB-K49" userLabel="Steps">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xgT-Q8-spU" userLabel="Steps">
                                 <rect key="frame" x="0.0" y="260" width="600" height="120"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4,312" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Pd-dK-GzO">
-                                        <rect key="frame" x="448" y="21" width="152" height="78"/>
-                                        <fontDescription key="fontDescription" name="SanFranciscoText-Light" family="San Francisco Text" pointSize="65"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Steps" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IgY-kZ-wCL">
+                                        <rect key="frame" x="8" y="36" width="104" height="48"/>
+                                        <fontDescription key="fontDescription" name="SanFranciscoText-Regular" family="San Francisco Text" pointSize="40"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UQq-6D-iEH" userLabel="Altitude Legend">
-                                        <rect key="frame" x="-10" y="12" width="40" height="96"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Steps" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mRP-DY-H0I">
-                                                <rect key="frame" x="1" y="37" width="47" height="23"/>
-                                                <fontDescription key="fontDescription" name="SanFranciscoDisplay-Regular" family="San Francisco Display" pointSize="19"/>
-                                                <color key="textColor" red="0.40784313725490196" green="0.72156862745098038" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="centerY" secondItem="mRP-DY-H0I" secondAttribute="centerY" id="BsH-S8-9Xo"/>
-                                            <constraint firstAttribute="width" constant="40" id="lxC-sm-CBq"/>
-                                            <constraint firstAttribute="centerX" secondItem="mRP-DY-H0I" secondAttribute="centerX" constant="-5" id="xLE-5q-sk8"/>
-                                        </constraints>
-                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tlS-pp-Afd">
+                                        <rect key="frame" x="810.5" y="21" width="39.5" height="78"/>
+                                        <fontDescription key="fontDescription" name="SanFranciscoText-Regular" family="San Francisco Text" pointSize="65"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.40784313729999999" green="0.72156862749999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="centerX" secondItem="1Pd-dK-GzO" secondAttribute="centerX" id="BHX-F2-iYk"/>
-                                    <constraint firstAttribute="centerY" secondItem="UQq-6D-iEH" secondAttribute="centerY" id="EWy-ae-lHs"/>
-                                    <constraint firstItem="UQq-6D-iEH" firstAttribute="height" secondItem="Gey-VB-K49" secondAttribute="height" multiplier="4:5" id="FiL-9W-SCK"/>
-                                    <constraint firstAttribute="trailing" secondItem="1Pd-dK-GzO" secondAttribute="trailing" id="Hs4-Jj-Edx"/>
-                                    <constraint firstItem="UQq-6D-iEH" firstAttribute="leading" secondItem="Gey-VB-K49" secondAttribute="leading" constant="-10" id="cVm-kM-PgC"/>
-                                    <constraint firstAttribute="centerY" secondItem="1Pd-dK-GzO" secondAttribute="centerY" id="uIa-Oc-4Yd"/>
+                                    <constraint firstItem="IgY-kZ-wCL" firstAttribute="leading" secondItem="xgT-Q8-spU" secondAttribute="leading" constant="8" id="8If-h8-IKD"/>
+                                    <constraint firstItem="tlS-pp-Afd" firstAttribute="centerY" secondItem="xgT-Q8-spU" secondAttribute="centerY" id="FET-oX-sAA"/>
+                                    <constraint firstAttribute="centerY" secondItem="IgY-kZ-wCL" secondAttribute="centerY" id="UHI-Xm-IhZ"/>
+                                    <constraint firstItem="tlS-pp-Afd" firstAttribute="trailing" secondItem="xgT-Q8-spU" secondAttribute="trailing" constant="250" id="rab-7m-Np9"/>
                                 </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="BHX-F2-iYk"/>
-                                    </mask>
-                                </variation>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oda-nV-GU2" userLabel="Start Time">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="73l-Jc-a0k" userLabel="Start Time">
                                 <rect key="frame" x="0.0" y="380" width="600" height="120"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8:42am" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S3d-dN-Fpc">
-                                        <rect key="frame" x="361.5" y="21" width="218" height="78"/>
-                                        <fontDescription key="fontDescription" name="SanFranciscoText-Light" family="San Francisco Text" pointSize="65"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start Time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sQe-7w-iB2">
+                                        <rect key="frame" x="8" y="36" width="189.5" height="48"/>
+                                        <fontDescription key="fontDescription" name="SanFranciscoText-Regular" family="San Francisco Text" pointSize="40"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WQS-m0-Sgr" userLabel="Altitude Legend">
-                                        <rect key="frame" x="-10" y="12" width="40" height="96"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Start" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NkQ-WN-84s">
-                                                <rect key="frame" x="1" y="37" width="47" height="23"/>
-                                                <fontDescription key="fontDescription" name="SanFranciscoDisplay-Regular" family="San Francisco Display" pointSize="19"/>
-                                                <color key="textColor" red="0.99607843139999996" green="0.85882352939999995" blue="0.38431372549999998" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="centerY" secondItem="NkQ-WN-84s" secondAttribute="centerY" id="SIZ-zz-nkw"/>
-                                            <constraint firstAttribute="width" constant="40" id="dxv-rT-q1G"/>
-                                            <constraint firstAttribute="centerX" secondItem="NkQ-WN-84s" secondAttribute="centerX" constant="-5" id="zcP-I2-0sP"/>
-                                        </constraints>
-                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9:00am" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aXY-rB-KUz">
+                                        <rect key="frame" x="622" y="21" width="228" height="78"/>
+                                        <fontDescription key="fontDescription" name="SanFranciscoText-Regular" family="San Francisco Text" pointSize="65"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.99607843137254903" green="0.85882352941176465" blue="0.3843137254901961" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.99607843139999996" green="0.85882352939999995" blue="0.38431372549999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="S3d-dN-Fpc" secondAttribute="trailing" id="0dr-Uv-uBU"/>
-                                    <constraint firstAttribute="centerX" secondItem="S3d-dN-Fpc" secondAttribute="centerX" id="B4Y-1O-Oef"/>
-                                    <constraint firstAttribute="centerY" secondItem="S3d-dN-Fpc" secondAttribute="centerY" id="Gug-tC-DJ1"/>
-                                    <constraint firstAttribute="centerY" secondItem="WQS-m0-Sgr" secondAttribute="centerY" id="ho1-xC-Vpl"/>
-                                    <constraint firstItem="WQS-m0-Sgr" firstAttribute="leading" secondItem="Oda-nV-GU2" secondAttribute="leading" constant="-10" id="lEy-Tx-Zgt"/>
-                                    <constraint firstItem="WQS-m0-Sgr" firstAttribute="height" secondItem="Oda-nV-GU2" secondAttribute="height" multiplier="4:5" id="mw1-PH-Laj"/>
+                                    <constraint firstItem="sQe-7w-iB2" firstAttribute="leading" secondItem="73l-Jc-a0k" secondAttribute="leading" constant="8" id="lTF-wS-EC8"/>
+                                    <constraint firstItem="aXY-rB-KUz" firstAttribute="centerY" secondItem="73l-Jc-a0k" secondAttribute="centerY" id="prT-2x-Pzl"/>
+                                    <constraint firstItem="aXY-rB-KUz" firstAttribute="trailing" secondItem="73l-Jc-a0k" secondAttribute="trailing" constant="250" id="yEv-Dd-bwI"/>
+                                    <constraint firstAttribute="centerY" secondItem="sQe-7w-iB2" secondAttribute="centerY" id="yeY-2n-I6b"/>
                                 </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="0dr-Uv-uBU"/>
-                                        <exclude reference="B4Y-1O-Oef"/>
-                                    </mask>
-                                </variation>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mUR-8h-lAQ">
-                                <rect key="frame" x="0.0" y="520" width="600" height="60"/>
-                                <color key="backgroundColor" red="0.18081453738748912" green="0.85458002645502651" blue="0.33026424288856504" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="pZf-lH-qdi"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="SanFranciscoDisplay-Regular" family="San Francisco Display" pointSize="38"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3QH-qI-Kgb">
+                                <rect key="frame" x="283" y="562" width="34" height="30"/>
                                 <state key="normal" title="Start">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="pZf-lH-qdi"/>
-                                    </mask>
-                                </variation>
                                 <connections>
-                                    <action selector="toggleStartStop:" destination="BfH-WV-cGb" eventType="touchUpInside" id="bQp-dR-gfB"/>
+                                    <action selector="toggleStartStop:" destination="BfH-WV-cGb" eventType="touchUpInside" id="5at-ZB-Fd1"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="1Pd-dK-GzO" firstAttribute="trailing" secondItem="5DJ-lQ-pG7" secondAttribute="trailing" constant="20" id="07r-15-aWa"/>
-                            <constraint firstItem="Gey-VB-K49" firstAttribute="top" secondItem="Yoq-hN-fyp" secondAttribute="bottom" id="0yu-vB-feG"/>
-                            <constraint firstItem="Yoq-hN-fyp" firstAttribute="leading" secondItem="sQc-iY-Ssj" secondAttribute="leading" id="1Cv-da-VGU"/>
-                            <constraint firstItem="Yoq-hN-fyp" firstAttribute="trailing" secondItem="Gey-VB-K49" secondAttribute="trailing" id="3to-jR-2EE"/>
-                            <constraint firstItem="Yoq-hN-fyp" firstAttribute="leading" secondItem="Gey-VB-K49" secondAttribute="leading" id="7x1-MN-UKR"/>
-                            <constraint firstItem="Yoq-hN-fyp" firstAttribute="height" secondItem="Ni3-nu-e4i" secondAttribute="height" id="AU5-VI-CAe"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Yoq-hN-fyp" secondAttribute="trailing" id="CL3-0D-Phi"/>
-                            <constraint firstItem="mUR-8h-lAQ" firstAttribute="height" secondItem="sQc-iY-Ssj" secondAttribute="height" multiplier="1:10" id="E6p-A2-DWC"/>
-                            <constraint firstItem="Oda-nV-GU2" firstAttribute="height" secondItem="Gey-VB-K49" secondAttribute="height" id="IOD-y5-GPr"/>
-                            <constraint firstItem="mUR-8h-lAQ" firstAttribute="width" secondItem="sQc-iY-Ssj" secondAttribute="width" id="JZf-mH-kZP"/>
-                            <constraint firstItem="Ni3-nu-e4i" firstAttribute="top" secondItem="KGc-mP-MRl" secondAttribute="bottom" id="MiO-ve-0HC"/>
-                            <constraint firstItem="5DJ-lQ-pG7" firstAttribute="trailing" secondItem="S3d-dN-Fpc" secondAttribute="trailing" id="N5t-so-ja4"/>
+                            <constraint firstItem="I2h-cU-cFS" firstAttribute="top" secondItem="sQc-iY-Ssj" secondAttribute="topMargin" id="07W-sc-Nfe"/>
+                            <constraint firstAttribute="trailing" secondItem="xgT-Q8-spU" secondAttribute="trailing" id="4Sj-Hh-JoB"/>
+                            <constraint firstItem="Ni3-nu-e4i" firstAttribute="height" secondItem="ygl-ix-v4g" secondAttribute="height" id="7If-36-49f"/>
+                            <constraint firstItem="ygl-ix-v4g" firstAttribute="top" secondItem="Ni3-nu-e4i" secondAttribute="bottom" id="8lF-vf-f6z"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xgT-Q8-spU" secondAttribute="trailing" constant="69" id="C7J-kR-6Dp"/>
+                            <constraint firstItem="73l-Jc-a0k" firstAttribute="top" secondItem="xgT-Q8-spU" secondAttribute="bottom" id="DFR-yL-Xbd"/>
+                            <constraint firstItem="Ni3-nu-e4i" firstAttribute="height" secondItem="73l-Jc-a0k" secondAttribute="height" id="Dyq-uz-Jw5"/>
+                            <constraint firstItem="xgT-Q8-spU" firstAttribute="top" secondItem="ygl-ix-v4g" secondAttribute="bottom" id="Hjc-1u-wYJ"/>
+                            <constraint firstItem="I2h-cU-cFS" firstAttribute="bottom" secondItem="mX5-7Y-dkP" secondAttribute="top" constant="-521" id="I7C-dd-N2X"/>
+                            <constraint firstItem="mX5-7Y-dkP" firstAttribute="top" secondItem="3QH-qI-Kgb" secondAttribute="bottom" constant="8" id="Nko-sZ-h1q"/>
                             <constraint firstAttribute="trailing" secondItem="Ni3-nu-e4i" secondAttribute="trailing" id="Ohf-xb-zxD"/>
-                            <constraint firstItem="mUR-8h-lAQ" firstAttribute="width" secondItem="sQc-iY-Ssj" secondAttribute="width" id="S74-bZ-v7F"/>
-                            <constraint firstAttribute="centerX" secondItem="mUR-8h-lAQ" secondAttribute="centerX" id="VYh-vl-Tme"/>
-                            <constraint firstItem="5DJ-lQ-pG7" firstAttribute="trailing" secondItem="AuV-t2-pwW" secondAttribute="trailing" id="Zuc-LB-r6I"/>
-                            <constraint firstItem="Ni3-nu-e4i" firstAttribute="height" secondItem="sQc-iY-Ssj" secondAttribute="height" multiplier="1:5" id="aQP-Vm-WhN"/>
-                            <constraint firstItem="Oda-nV-GU2" firstAttribute="trailing" secondItem="Gey-VB-K49" secondAttribute="trailing" id="gOk-2d-Mnw"/>
-                            <constraint firstItem="Oda-nV-GU2" firstAttribute="top" secondItem="Gey-VB-K49" secondAttribute="bottom" id="gVe-f4-vGM"/>
-                            <constraint firstItem="Yoq-hN-fyp" firstAttribute="top" secondItem="Ni3-nu-e4i" secondAttribute="bottom" id="nrm-9d-ApD"/>
-                            <constraint firstItem="Yoq-hN-fyp" firstAttribute="height" secondItem="Gey-VB-K49" secondAttribute="height" id="oeD-jO-nQw"/>
-                            <constraint firstItem="mUR-8h-lAQ" firstAttribute="top" secondItem="KGc-mP-MRl" secondAttribute="bottom" id="pGX-jv-o4Y"/>
-                            <constraint firstAttribute="trailing" secondItem="Yoq-hN-fyp" secondAttribute="trailing" id="rsN-Vx-zjU"/>
-                            <constraint firstItem="mX5-7Y-dkP" firstAttribute="top" secondItem="mUR-8h-lAQ" secondAttribute="bottom" constant="20" id="utT-sS-rOO"/>
+                            <constraint firstItem="Ni3-nu-e4i" firstAttribute="top" secondItem="sQc-iY-Ssj" secondAttribute="topMargin" id="Xlw-6K-xTm"/>
+                            <constraint firstItem="ygl-ix-v4g" firstAttribute="leading" secondItem="sQc-iY-Ssj" secondAttribute="leading" id="YIn-Aa-o9N"/>
+                            <constraint firstItem="Ni3-nu-e4i" firstAttribute="height" secondItem="sQc-iY-Ssj" secondAttribute="height" multiplier="1:5" constant="20" id="aQP-Vm-WhN"/>
+                            <constraint firstAttribute="trailing" secondItem="73l-Jc-a0k" secondAttribute="trailing" id="adC-bs-M9n"/>
+                            <constraint firstAttribute="centerX" secondItem="3QH-qI-Kgb" secondAttribute="centerX" id="cRD-fX-Mxu"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="73l-Jc-a0k" secondAttribute="trailing" constant="35" id="gKa-gQ-QOG"/>
+                            <constraint firstItem="Ni3-nu-e4i" firstAttribute="height" secondItem="sQc-iY-Ssj" secondAttribute="height" multiplier="1:5" id="hw7-eI-s0d"/>
+                            <constraint firstAttribute="trailing" secondItem="I2h-cU-cFS" secondAttribute="trailing" id="iVb-xL-Ixf"/>
+                            <constraint firstItem="xgT-Q8-spU" firstAttribute="leading" secondItem="sQc-iY-Ssj" secondAttribute="leading" id="ifE-OI-AqG"/>
+                            <constraint firstAttribute="trailing" secondItem="ygl-ix-v4g" secondAttribute="trailing" id="oyF-6D-T8D"/>
+                            <constraint firstItem="I2h-cU-cFS" firstAttribute="leading" secondItem="sQc-iY-Ssj" secondAttribute="leading" id="p0X-ve-Yjc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ygl-ix-v4g" secondAttribute="trailing" id="sYa-JX-LBY"/>
+                            <constraint firstItem="Ni3-nu-e4i" firstAttribute="top" secondItem="KGc-mP-MRl" secondAttribute="bottom" id="ute-GM-8jV"/>
                             <constraint firstItem="Ni3-nu-e4i" firstAttribute="leading" secondItem="sQc-iY-Ssj" secondAttribute="leading" id="vb8-Rp-I1d"/>
-                            <constraint firstItem="Oda-nV-GU2" firstAttribute="leading" secondItem="Gey-VB-K49" secondAttribute="leading" id="vhV-X9-dPI"/>
-                            <constraint firstItem="Ni3-nu-e4i" firstAttribute="top" secondItem="mUR-8h-lAQ" secondAttribute="bottom" id="z5o-iT-QXL"/>
+                            <constraint firstItem="73l-Jc-a0k" firstAttribute="leading" secondItem="sQc-iY-Ssj" secondAttribute="leading" id="vgn-BO-XQj"/>
+                            <constraint firstItem="xgT-Q8-spU" firstAttribute="height" secondItem="Ni3-nu-e4i" secondAttribute="height" id="w9C-ch-3GT"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="z5o-iT-QXL"/>
-                                <exclude reference="S74-bZ-v7F"/>
-                                <exclude reference="pGX-jv-o4Y"/>
+                                <exclude reference="I7C-dd-N2X"/>
+                                <exclude reference="Xlw-6K-xTm"/>
+                                <exclude reference="aQP-Vm-WhN"/>
+                                <exclude reference="sYa-JX-LBY"/>
+                                <exclude reference="C7J-kR-6Dp"/>
+                                <exclude reference="gKa-gQ-QOG"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="altitudeLabel" destination="Rhc-ng-UBW" id="wDU-d3-foZ"/>
-                        <outlet property="altitudeLegendBackground" destination="f5r-zE-mZd" id="Ifn-iH-vSB"/>
-                        <outlet property="startStop" destination="mUR-8h-lAQ" id="TR2-11-0X8"/>
-                        <outlet property="startTimeLabel" destination="NkQ-WN-84s" id="g9i-KO-Vr7"/>
-                        <outlet property="startTimeLegendBackground" destination="WQS-m0-Sgr" id="Ejq-hh-sBD"/>
-                        <outlet property="stepsLabel" destination="mRP-DY-H0I" id="yVK-LF-AlT"/>
-                        <outlet property="stepsLegendBackground" destination="UQq-6D-iEH" id="ZiW-1H-5b0"/>
-                        <outlet property="timeLabel" destination="RN0-zD-ulN" id="Cmg-73-huH"/>
-                        <outlet property="timeLegendBackground" destination="1Uo-CB-JMf" id="EPJ-ba-3Oo"/>
+                        <outlet property="altitude" destination="O6b-5Y-Ih7" id="Co2-bK-sok"/>
+                        <outlet property="altitudeConstraint" destination="SY8-dy-f86" id="Jq6-BY-DvM"/>
+                        <outlet property="altitudeLegendConstraint" destination="zxh-L9-Tvw" id="3EI-rA-r3b"/>
+                        <outlet property="runningTime" destination="5DJ-lQ-pG7" id="edn-fm-ipM"/>
+                        <outlet property="runningTimeConstraint" destination="mPy-tE-lAi" id="LL4-hz-lNR"/>
+                        <outlet property="runningTimeLegendConstraint" destination="iSh-LU-aGX" id="5ny-94-1IT"/>
+                        <outlet property="startStop" destination="3QH-qI-Kgb" id="LSJ-C6-XoL"/>
+                        <outlet property="startTime" destination="sQe-7w-iB2" id="ZIN-Md-Vco"/>
+                        <outlet property="startTimeConstraint" destination="yEv-Dd-bwI" id="ynF-t3-rEO"/>
+                        <outlet property="startTimeLegendConstraint" destination="lTF-wS-EC8" id="THZ-44-Ff0"/>
+                        <outlet property="steps" destination="IgY-kZ-wCL" id="VO5-cT-tOE"/>
+                        <outlet property="stepsConstraint" destination="rab-7m-Np9" id="hZR-l4-9YY"/>
+                        <outlet property="stepsLegendConstraint" destination="8If-h8-IKD" id="r8G-2N-sHi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vEI-yc-1aX" userLabel="First Responder" sceneMemberID="firstResponder"/>
