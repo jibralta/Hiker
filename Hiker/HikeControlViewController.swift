@@ -46,8 +46,6 @@ class HikeControlViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.startStop.hidden = true
-//        self.runningTime.alpha = 0.0
     }
 
     override func didReceiveMemoryWarning() {
@@ -61,8 +59,9 @@ class HikeControlViewController: UIViewController {
             self.setActiveLabels(true)
             startDataCollection()
             startDate = NSDate()
-            /*
             startStop.setTitle("Stop", forState: .Normal)
+            /*
+            
             startStop.backgroundColor = UIColor(red: 255/255, green: 99/255, blue: 107/255, alpha: 1.0)
             */
             hiking = true
@@ -71,7 +70,7 @@ class HikeControlViewController: UIViewController {
             endDate = NSDate()
             stopDataCollection()
             startStop.setTitle("Start", forState: .Normal)
-            startStop.backgroundColor = UIColor(red: 46/255, green: 218/255, blue: 84/255, alpha: 1.0)
+//            startStop.backgroundColor = UIColor(red: 46/255, green: 218/255, blue: 84/255, alpha: 1.0)
             hiking = false
         }
     }
