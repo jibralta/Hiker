@@ -34,6 +34,7 @@
 		22D08D7A1B221B5F004D31BE /* SanFranciscoText-RegularItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 22D08D651B221B5F004D31BE /* SanFranciscoText-RegularItalic.otf */; };
 		22D08D7B1B221B5F004D31BE /* SanFranciscoText-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 22D08D661B221B5F004D31BE /* SanFranciscoText-Semibold.otf */; };
 		22D08D7C1B221B5F004D31BE /* SanFranciscoText-SemiboldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 22D08D671B221B5F004D31BE /* SanFranciscoText-SemiboldItalic.otf */; };
+		22F2CD5C1B2F8E4900832A4A /* MasterPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F2CD5B1B2F8E4900832A4A /* MasterPageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		22D08D651B221B5F004D31BE /* SanFranciscoText-RegularItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SanFranciscoText-RegularItalic.otf"; path = "Fonts/San Francisco/SanFranciscoText-RegularItalic.otf"; sourceTree = "<group>"; };
 		22D08D661B221B5F004D31BE /* SanFranciscoText-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SanFranciscoText-Semibold.otf"; path = "Fonts/San Francisco/SanFranciscoText-Semibold.otf"; sourceTree = "<group>"; };
 		22D08D671B221B5F004D31BE /* SanFranciscoText-SemiboldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SanFranciscoText-SemiboldItalic.otf"; path = "Fonts/San Francisco/SanFranciscoText-SemiboldItalic.otf"; sourceTree = "<group>"; };
+		22F2CD5B1B2F8E4900832A4A /* MasterPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterPageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +124,7 @@
 				2237D6B81B20D700005E48FE /* AppDelegate.swift */,
 				2237D6BA1B20D700005E48FE /* HikeControlViewController.swift */,
 				2237D6BC1B20D700005E48FE /* Main.storyboard */,
+				22F2CD5B1B2F8E4900832A4A /* MasterPageViewController.swift */,
 				2237D6BF1B20D700005E48FE /* Images.xcassets */,
 				2237D6C11B20D700005E48FE /* LaunchScreen.xib */,
 				2237D6B61B20D700005E48FE /* Supporting Files */,
@@ -228,7 +231,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0640;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = samswiches;
 				TargetAttributes = {
 					2237D6B21B20D700005E48FE = {
@@ -306,6 +309,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2237D6BB1B20D700005E48FE /* HikeControlViewController.swift in Sources */,
+				22F2CD5C1B2F8E4900832A4A /* MasterPageViewController.swift in Sources */,
 				2237D6B91B20D700005E48FE /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -369,6 +373,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -436,6 +441,7 @@
 				INFOPLIST_FILE = Hiker/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.samswiches.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -447,6 +453,7 @@
 				INFOPLIST_FILE = Hiker/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.samswiches.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -491,6 +498,7 @@
 				INFOPLIST_FILE = HikerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.samswiches.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hiker.app/Hiker";
 			};
@@ -530,6 +538,7 @@
 				INFOPLIST_FILE = HikerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.samswiches.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hiker.app/Hiker";
 			};

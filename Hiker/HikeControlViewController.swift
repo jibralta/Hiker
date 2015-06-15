@@ -33,7 +33,7 @@ class HikeControlViewController: UIViewController {
     
     let legendOffScreenConstant: CGFloat = -300
     let labelOnScreenShiftConstant: CGFloat = -20
-    let legendOnScreenConstant: CGFloat = 8
+    let legendOnScreenConstant: CGFloat = 20
     let labelOffScreenShiftConstant: CGFloat = 250
     
     var altimeter = CMAltimeter()
@@ -46,16 +46,18 @@ class HikeControlViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.view.clipsToBounds = true
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     @IBAction func toggleStartStop(sender: AnyObject) {
         if !hiking {
-//            removeStartButton()
+            removeStartButton()
             self.setActiveLabels(true)
             startDataCollection()
             startDate = NSDate()
@@ -86,25 +88,37 @@ class HikeControlViewController: UIViewController {
     }
     
     func removeStartButton() {
-        self.view.addConstraint(NSLayoutConstraint(item: self.startStop, attribute: .Top, relatedBy: .Equal, toItem: self.view, attribute: .Bottom, multiplier: 1.0, constant: 200))
+//        self.view.addConstraint(NSLayoutConstraint(item: self.startStop, attribute: .Top, relatedBy: .Equal, toItem: self.view, attribute: .Bottom, multiplier: 1.0, constant: 200))
         // FIX: self in animation block could cause memory leak
-        UIView.animateWithDuration(0.5, animations: { self.startStop.layoutIfNeeded() }, completion: nil)
-        
+//        UIView.animateWithDuration(0.5, animations: { self.startStop.layoutIfNeeded() }, completion: nil)
+        dispatch_async(dispatch_get_main_queue()) {
+            self.view.layoutIfNeeded()
         let pause = UIButton()
         pause.translatesAutoresizingMaskIntoConstraints = false
         pause.setTitle("Pause", forState: .Normal)
         pause.setTitleColor(UIColor.blackColor(), forState: .Normal)
         pause.titleLabel?.font = UIFont(name: "SanFrancisco-Display", size: 25.0)
+        pause.backgroundColor = UIColor.blueColor()
         self.view.addSubview(pause)
+        
+        // Add width/height
+//        pause.addConstraint(NSLayoutConstraint(item: pause, attribute: .Width, relatedBy: .Equal, toItem: nil, attribute: .Width, multiplier: 1.0, constant: 150))
+//        pause.addConstraint(NSLayoutConstraint(item: pause, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .Height, multiplier: 1.0, constant: 50))
         
         // Position offscreen
         self.view.addConstraint(NSLayoutConstraint(item: pause, attribute: .Trailing, relatedBy: .Equal, toItem: self.view, attribute: .Leading, multiplier: 1.0, constant: 0))
-        self.view.addConstraint(NSLayoutConstraint(item: pause, attribute: .Bottom, relatedBy: .Equal, toItem: self.view, attribute: .Bottom, multiplier: 1.0, constant: 0))
-        pause.layoutIfNeeded()
+//        self.view.addConstraint(NSLayoutConstraint(item: pause, attribute: .Bottom, relatedBy: .Equal, toItem: self.view, attribute: NSLayoutAttribute.Baseline, multiplier: 1.0, constant: 0))
+            self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[pause]|", options: NSLayoutFormatOptions.AlignAllLeading, metrics: nil, views: ["pause" : pause]))
+        self.view.layoutIfNeeded()
+            print(pause.frame)
         
         // Animate onscreen
-//        self.view.addConstraint(NSLayoutConstraint(item: pause, attribute: .Leading, relatedBy: .Equal, toItem: self.view, attribute: .Leading, multiplier: 1.0, constant: 0))
-//        UIView.animateWithDuration(0.5, animations: { pause.layoutIfNeeded() }, completion: nil)
+        self.view.addConstraint(NSLayoutConstraint(item: pause, attribute: .Leading, relatedBy: .Equal, toItem: self.view, attribute: .Leading, multiplier: 1.0, constant: 0))
+            UIView.animateWithDuration(0.5, animations: { pause.layoutIfNeeded() }) {
+                (success) in
+                print(pause.frame)
+            }
+        }
     }
     
     func startDataCollection() {
