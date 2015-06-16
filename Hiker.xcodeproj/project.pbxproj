@@ -35,6 +35,9 @@
 		22D08D7B1B221B5F004D31BE /* SanFranciscoText-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 22D08D661B221B5F004D31BE /* SanFranciscoText-Semibold.otf */; };
 		22D08D7C1B221B5F004D31BE /* SanFranciscoText-SemiboldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 22D08D671B221B5F004D31BE /* SanFranciscoText-SemiboldItalic.otf */; };
 		22F2CD5C1B2F8E4900832A4A /* MasterPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F2CD5B1B2F8E4900832A4A /* MasterPageViewController.swift */; };
+		22F2CD5E1B2FD5DB00832A4A /* HistoricalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F2CD5D1B2FD5DB00832A4A /* HistoricalViewController.swift */; };
+		22F2CD9E1B2FE46C00832A4A /* HistoricalHikes.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 22F2CD9C1B2FE46C00832A4A /* HistoricalHikes.xcdatamodeld */; };
+		22F2CDA21B2FE55600832A4A /* Hike.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F2CDA11B2FE55600832A4A /* Hike.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +83,9 @@
 		22D08D661B221B5F004D31BE /* SanFranciscoText-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SanFranciscoText-Semibold.otf"; path = "Fonts/San Francisco/SanFranciscoText-Semibold.otf"; sourceTree = "<group>"; };
 		22D08D671B221B5F004D31BE /* SanFranciscoText-SemiboldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SanFranciscoText-SemiboldItalic.otf"; path = "Fonts/San Francisco/SanFranciscoText-SemiboldItalic.otf"; sourceTree = "<group>"; };
 		22F2CD5B1B2F8E4900832A4A /* MasterPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterPageViewController.swift; sourceTree = "<group>"; };
+		22F2CD5D1B2FD5DB00832A4A /* HistoricalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoricalViewController.swift; sourceTree = "<group>"; };
+		22F2CD9D1B2FE46C00832A4A /* HistoricalHikes.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HistoricalHikes.xcdatamodel; sourceTree = "<group>"; };
+		22F2CDA11B2FE55600832A4A /* Hike.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hike.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,10 +127,10 @@
 		2237D6B51B20D700005E48FE /* Hiker */ = {
 			isa = PBXGroup;
 			children = (
+				22F2CDA01B2FE49800832A4A /* Presentation */,
+				22F2CD9F1B2FE48000832A4A /* Model */,
 				2237D6B81B20D700005E48FE /* AppDelegate.swift */,
-				2237D6BA1B20D700005E48FE /* HikeControlViewController.swift */,
 				2237D6BC1B20D700005E48FE /* Main.storyboard */,
-				22F2CD5B1B2F8E4900832A4A /* MasterPageViewController.swift */,
 				2237D6BF1B20D700005E48FE /* Images.xcassets */,
 				2237D6C11B20D700005E48FE /* LaunchScreen.xib */,
 				2237D6B61B20D700005E48FE /* Supporting Files */,
@@ -184,6 +190,25 @@
 				22D08D671B221B5F004D31BE /* SanFranciscoText-SemiboldItalic.otf */,
 			);
 			name = Fonts;
+			sourceTree = "<group>";
+		};
+		22F2CD9F1B2FE48000832A4A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				22F2CD9C1B2FE46C00832A4A /* HistoricalHikes.xcdatamodeld */,
+				22F2CDA11B2FE55600832A4A /* Hike.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		22F2CDA01B2FE49800832A4A /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				22F2CD5B1B2F8E4900832A4A /* MasterPageViewController.swift */,
+				22F2CD5D1B2FD5DB00832A4A /* HistoricalViewController.swift */,
+				2237D6BA1B20D700005E48FE /* HikeControlViewController.swift */,
+			);
+			name = Presentation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -308,8 +333,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22F2CDA21B2FE55600832A4A /* Hike.swift in Sources */,
 				2237D6BB1B20D700005E48FE /* HikeControlViewController.swift in Sources */,
 				22F2CD5C1B2F8E4900832A4A /* MasterPageViewController.swift in Sources */,
+				22F2CD9E1B2FE46C00832A4A /* HistoricalHikes.xcdatamodeld in Sources */,
+				22F2CD5E1B2FD5DB00832A4A /* HistoricalViewController.swift in Sources */,
 				2237D6B91B20D700005E48FE /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -575,6 +603,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		22F2CD9C1B2FE46C00832A4A /* HistoricalHikes.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				22F2CD9D1B2FE46C00832A4A /* HistoricalHikes.xcdatamodel */,
+			);
+			currentVersion = 22F2CD9D1B2FE46C00832A4A /* HistoricalHikes.xcdatamodel */;
+			path = HistoricalHikes.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 2237D6AB1B20D700005E48FE /* Project object */;
 }
