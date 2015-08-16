@@ -90,15 +90,11 @@ class HikeControlViewController: UIViewController {
     }
     
     func setStartLabel(date: NSDate) {
-        let calendar = NSCalendar.currentCalendar()
-        let formatter = NSDateComponentsFormatter()
-        formatter.unitsStyle = .Positional
-        formatter.calendar = calendar
-        
-        let components = calendar.components([NSCalendarUnit.Hour, NSCalendarUnit.Minute], fromDate: date)
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "h:mma"
         
         dispatch_async(dispatch_get_main_queue()) {
-            self.startTimeActual.text = formatter.stringFromDateComponents(components)
+            self.startTimeActual.text = formatter.stringFromDate(date)
         }
     }
     
