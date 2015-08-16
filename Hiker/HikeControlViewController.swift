@@ -17,6 +17,8 @@ class HikeControlViewController: UIViewController {
     @IBOutlet weak var runningTime: UILabel!
     @IBOutlet weak var runningTimeLegendConstraint: NSLayoutConstraint!
     @IBOutlet weak var runningTimeConstraint: NSLayoutConstraint!
+    @IBOutlet weak var runningTimeActual: UILabel!
+    
     // Altitude
     @IBOutlet weak var altitude: UILabel!
     @IBOutlet weak var altitudeLegendConstraint: NSLayoutConstraint!
@@ -26,6 +28,7 @@ class HikeControlViewController: UIViewController {
     @IBOutlet weak var steps: UILabel!
     @IBOutlet weak var stepsLegendConstraint: NSLayoutConstraint!
     @IBOutlet weak var stepsConstraint: NSLayoutConstraint!
+    
     // Start time
     @IBOutlet weak var startTime: UILabel!
     @IBOutlet weak var startTimeLegendConstraint: NSLayoutConstraint!
@@ -44,6 +47,7 @@ class HikeControlViewController: UIViewController {
     var hiking = false
     var startDate: NSDate!
     var endDate: NSDate!
+    var updateTimer: NSTimer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,6 +67,7 @@ class HikeControlViewController: UIViewController {
             startDataCollection()
             startDate = NSDate()
             setStartLabel(startDate)
+            updateTimer = NSTimer.scheduledTimerWithTimeInterval(60.0, target: self, selector: "minuteUpdate", userInfo: nil, repeats: true)
             startStop.setTitle("Stop", forState: .Normal)
             /*
             
@@ -77,6 +82,20 @@ class HikeControlViewController: UIViewController {
 //            startStop.backgroundColor = UIColor(red: 46/255, green: 218/255, blue: 84/255, alpha: 1.0)
             hiking = false
         }
+    }
+    
+    func minuteUpdate() {
+        let hikeTime = NSDate().timeIntervalSinceDate(startDate)
+        dispatch_async(dispatch_get_main_queue()) {
+            self.runningTimeActual.text = self.formattedStringFromInterval(hikeTime)
+        }
+    }
+    
+    func formattedStringFromInterval(interval: NSTimeInterval) -> String {
+        let interval = Int(interval)
+        let minutes = (interval / 60) % 60
+        let hours = (interval / 3600)
+        return String(format: "%02d:%02d", hours, minutes)
     }
     
     func setActiveLabels(active: Bool) {

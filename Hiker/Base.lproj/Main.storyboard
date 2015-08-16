@@ -55,7 +55,7 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5DJ-lQ-pG7">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="00:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5DJ-lQ-pG7">
                                         <rect key="frame" x="713" y="21" width="137" height="78"/>
                                         <fontDescription key="fontDescription" name="SanFranciscoText-Regular" family="San Francisco Text" pointSize="65"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -198,6 +198,7 @@
                         <outlet property="altitudeConstraint" destination="SY8-dy-f86" id="Jq6-BY-DvM"/>
                         <outlet property="altitudeLegendConstraint" destination="zxh-L9-Tvw" id="3EI-rA-r3b"/>
                         <outlet property="runningTime" destination="5DJ-lQ-pG7" id="edn-fm-ipM"/>
+                        <outlet property="runningTimeActual" destination="5DJ-lQ-pG7" id="I7V-qp-bgp"/>
                         <outlet property="runningTimeConstraint" destination="mPy-tE-lAi" id="LL4-hz-lNR"/>
                         <outlet property="runningTimeLegendConstraint" destination="iSh-LU-aGX" id="5ny-94-1IT"/>
                         <outlet property="startStop" destination="3QH-qI-Kgb" id="LSJ-C6-XoL"/>
