@@ -148,6 +148,16 @@ class HikeControlViewController: UIViewController {
     func stopDataCollection() {
         ceaseAltitudeCollection()
         ceasePedometerCollection()
+        self.updateTimer.invalidate()
+        self.pedometer.queryPedometerDataFromDate(self.startDate, toDate: self.endDate) {
+            (pedometerData, error) in
+            if error != nil {
+                print("Error! ", error)
+            } else {
+                let steps = pedometerData?.numberOfSteps
+                print("Total steps: ", steps)
+            }
+        }
     }
     
     func initiateAltitudeCollection() {
