@@ -30,6 +30,7 @@ class HikeControlViewController: UIViewController {
     @IBOutlet weak var startTime: UILabel!
     @IBOutlet weak var startTimeLegendConstraint: NSLayoutConstraint!
     @IBOutlet weak var startTimeConstraint: NSLayoutConstraint!
+    @IBOutlet weak var startTimeActual: UILabel!
     
     let legendOffScreenConstant: CGFloat = -300
     let labelOnScreenShiftConstant: CGFloat = -20
@@ -58,9 +59,10 @@ class HikeControlViewController: UIViewController {
     @IBAction func toggleStartStop(sender: AnyObject) {
         if !hiking {
             removeStartButton()
-            self.setActiveLabels(true)
+            setActiveLabels(true)
             startDataCollection()
             startDate = NSDate()
+            setStartLabel(startDate)
             startStop.setTitle("Stop", forState: .Normal)
             /*
             
@@ -84,6 +86,19 @@ class HikeControlViewController: UIViewController {
             (self.startTimeLegendConstraint, self.startTimeConstraint)]
         for labelSet in labelsArr {
             shiftLabelsToActive(active, legendConstraint: labelSet.0, valueConstraint: labelSet.1)
+        }
+    }
+    
+    func setStartLabel(date: NSDate) {
+        let calendar = NSCalendar.currentCalendar()
+        let formatter = NSDateComponentsFormatter()
+        formatter.unitsStyle = .Positional
+        formatter.calendar = calendar
+        
+        let components = calendar.components([NSCalendarUnit.Hour, NSCalendarUnit.Minute], fromDate: date)
+        
+        dispatch_async(dispatch_get_main_queue()) {
+            self.startTimeActual.text = formatter.stringFromDateComponents(components)
         }
     }
     

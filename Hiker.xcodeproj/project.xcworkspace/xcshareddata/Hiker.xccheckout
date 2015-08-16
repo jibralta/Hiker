@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>5AF9F0B2-99E6-4B96-BBDB-7789738DCB2E</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Hiker</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>7243D8C5587CAA28DF99758FED035D5DB4D97F89</key>
+		<string>https://github.com/syoutsey/Hiker.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Hiker.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>7243D8C5587CAA28DF99758FED035D5DB4D97F89</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/syoutsey/Hiker.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>7243D8C5587CAA28DF99758FED035D5DB4D97F89</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>7243D8C5587CAA28DF99758FED035D5DB4D97F89</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Hiker</string>
+		</dict>
+	</array>
+</dict>
+</plist>
