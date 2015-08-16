@@ -69,25 +69,22 @@ class HikeControlViewController: UIViewController {
             setStartLabel(startDate)
             updateTimer = NSTimer.scheduledTimerWithTimeInterval(60.0, target: self, selector: "minuteUpdate", userInfo: nil, repeats: true)
             startStop.setTitle("Stop", forState: .Normal)
-            /*
-            
-            startStop.backgroundColor = UIColor(red: 255/255, green: 99/255, blue: 107/255, alpha: 1.0)
-            */
             hiking = true
         } else {
             self.setActiveLabels(false)
             endDate = NSDate()
             stopDataCollection()
             startStop.setTitle("Start", forState: .Normal)
-//            startStop.backgroundColor = UIColor(red: 46/255, green: 218/255, blue: 84/255, alpha: 1.0)
             hiking = false
         }
     }
     
     func minuteUpdate() {
         let hikeTime = NSDate().timeIntervalSinceDate(startDate)
+        let formattedHikeTime = self.formattedStringFromInterval(hikeTime)
+        print("Formatted hike time: \(formattedHikeTime)")
         dispatch_async(dispatch_get_main_queue()) {
-            self.runningTimeActual.text = self.formattedStringFromInterval(hikeTime)
+            self.runningTimeActual.text = formattedHikeTime
         }
     }
     
@@ -118,9 +115,6 @@ class HikeControlViewController: UIViewController {
     }
     
     func removeStartButton() {
-//        self.view.addConstraint(NSLayoutConstraint(item: self.startStop, attribute: .Top, relatedBy: .Equal, toItem: self.view, attribute: .Bottom, multiplier: 1.0, constant: 200))
-        // FIX: self in animation block could cause memory leak
-//        UIView.animateWithDuration(0.5, animations: { self.startStop.layoutIfNeeded() }, completion: nil)
         dispatch_async(dispatch_get_main_queue()) {
             self.view.layoutIfNeeded()
         let pause = UIButton()
@@ -131,14 +125,9 @@ class HikeControlViewController: UIViewController {
         pause.backgroundColor = UIColor.blueColor()
         self.view.addSubview(pause)
         
-        // Add width/height
-//        pause.addConstraint(NSLayoutConstraint(item: pause, attribute: .Width, relatedBy: .Equal, toItem: nil, attribute: .Width, multiplier: 1.0, constant: 150))
-//        pause.addConstraint(NSLayoutConstraint(item: pause, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .Height, multiplier: 1.0, constant: 50))
-        
         // Position offscreen
         self.view.addConstraint(NSLayoutConstraint(item: pause, attribute: .Trailing, relatedBy: .Equal, toItem: self.view, attribute: .Leading, multiplier: 1.0, constant: 0))
-//        self.view.addConstraint(NSLayoutConstraint(item: pause, attribute: .Bottom, relatedBy: .Equal, toItem: self.view, attribute: NSLayoutAttribute.Baseline, multiplier: 1.0, constant: 0))
-            self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[pause]|", options: NSLayoutFormatOptions.AlignAllLeading, metrics: nil, views: ["pause" : pause]))
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[pause]|", options: NSLayoutFormatOptions.AlignAllLeading, metrics: nil, views: ["pause" : pause]))
         self.view.layoutIfNeeded()
             print(pause.frame)
         
