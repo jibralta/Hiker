@@ -158,6 +158,34 @@ class HikeControlViewController: UIViewController {
                 print("Total steps: ", steps)
             }
         }
+        
+        displaySaveAlert()
+    }
+    
+    func displaySaveAlert() {
+        dispatch_async(dispatch_get_main_queue()) {
+            let alert = UIAlertController(title: "Save Hike", message: "Would you like to name and save this hike?", preferredStyle: .Alert)
+            let saveAction = UIAlertAction(title: "Save", style: .Default) {
+                (action) in
+                print("Saving!")
+                let nameField = alert.textFields![0] as UITextField
+                print("nameField: \(nameField.text)")
+            }
+            let cancelAction = UIAlertAction(title: "Cancel", style: .Destructive) {
+                (action) in
+                print("Canceling!")
+            }
+            
+            alert.addTextFieldWithConfigurationHandler {
+                (textField) in
+                textField.text = "New Hike"
+            }
+            
+            alert.addAction(saveAction)
+            alert.addAction(cancelAction)
+            
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
     }
     
     func initiateAltitudeCollection() {
