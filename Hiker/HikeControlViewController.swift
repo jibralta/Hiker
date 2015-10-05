@@ -44,10 +44,14 @@ class HikeControlViewController: UIViewController {
     var pedometer = CMPedometer()
     var cumulativeAltitude: NSNumber = 0
     var maxAltitude: NSNumber = 0
+    var totalSteps: NSNumber = 0
     var hiking = false
     var startDate: NSDate!
     var endDate: NSDate!
     var updateTimer: NSTimer!
+    
+    let segueIDToHistorical = "ActiveHikeToHistoricalHikes"
+    let segueIDToStaticImage = "HistoryImage"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,7 +75,7 @@ class HikeControlViewController: UIViewController {
             startStop.setTitle("Stop", forState: .Normal)
             hiking = true
         } else {
-            self.setActiveLabels(false)
+//            self.setActiveLabels(false)
             endDate = NSDate()
             stopDataCollection()
             startStop.setTitle("Start", forState: .Normal)
@@ -129,7 +133,6 @@ class HikeControlViewController: UIViewController {
         self.view.addConstraint(NSLayoutConstraint(item: pause, attribute: .Trailing, relatedBy: .Equal, toItem: self.view, attribute: .Leading, multiplier: 1.0, constant: 0))
         self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[pause]|", options: NSLayoutFormatOptions.AlignAllLeading, metrics: nil, views: ["pause" : pause]))
         self.view.layoutIfNeeded()
-            print(pause.frame)
         
         // Animate onscreen
         self.view.addConstraint(NSLayoutConstraint(item: pause, attribute: .Leading, relatedBy: .Equal, toItem: self.view, attribute: .Leading, multiplier: 1.0, constant: 0))
@@ -170,6 +173,11 @@ class HikeControlViewController: UIViewController {
                 print("Saving!")
                 let nameField = alert.textFields![0] as UITextField
                 print("nameField: \(nameField.text)")
+                
+                let dict = ["hikeName": nameField.text!]
+                // TODO: confirm that all our data is as expected at this point
+//                self.performSegueWithIdentifier(self.segueIDToHistorical, sender: dict)
+                self.performSegueWithIdentifier(self.segueIDToStaticImage, sender: dict)
             }
             let cancelAction = UIAlertAction(title: "Cancel", style: .Destructive) {
                 (action) in
@@ -185,6 +193,18 @@ class HikeControlViewController: UIViewController {
             alert.addAction(cancelAction)
             
             self.presentViewController(alert, animated: true, completion: nil)
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == self.segueIDToHistorical {
+            if let dict = sender as? Dictionary<String, String> {
+                let hikeName = dict["hikeName"]
+                print("Name: \(hikeName)")
+                
+                let vc = segue.destinationViewController as! HistoricalViewController
+                vc.saveHike(hikeName!, totalSteps: self.totalSteps, totalElevation: self.maxAltitude, startDate: self.startDate, endDate: self.endDate)
+            }
         }
     }
     

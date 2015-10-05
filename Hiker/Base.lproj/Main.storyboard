@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8164.2" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="qfD-sK-NUP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="qfD-sK-NUP">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8135.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
@@ -41,6 +41,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I2h-cU-cFS" userLabel="Status Bar">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="20"/>
+                                <animations/>
                                 <color key="backgroundColor" red="0.087341880720000001" green="0.85098039219999999" blue="0.46987871339999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="jqa-K7-Ao5"/>
@@ -51,17 +52,20 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Running Time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wXW-12-IHa">
                                         <rect key="frame" x="20" y="36" width="250.5" height="48"/>
+                                        <animations/>
                                         <fontDescription key="fontDescription" name="SanFranciscoText-Regular" family="San Francisco Text" pointSize="40"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="00:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5DJ-lQ-pG7">
                                         <rect key="frame" x="713" y="21" width="137" height="78"/>
+                                        <animations/>
                                         <fontDescription key="fontDescription" name="SanFranciscoText-Regular" family="San Francisco Text" pointSize="65"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
+                                <animations/>
                                 <color key="backgroundColor" red="0.087341880718646431" green="0.85098039215686272" blue="0.46987871338912435" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="wXW-12-IHa" firstAttribute="centerY" secondItem="Ni3-nu-e4i" secondAttribute="centerY" id="eSW-8q-HqN"/>
@@ -75,17 +79,20 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Altitude" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qwg-Nd-lnX">
                                         <rect key="frame" x="20" y="33" width="162.5" height="54"/>
+                                        <animations/>
                                         <fontDescription key="fontDescription" name="SanFranciscoText-Regular" family="San Francisco Text" pointSize="45"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0ft" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O6b-5Y-Ih7">
                                         <rect key="frame" x="761.5" y="21" width="88.5" height="78"/>
+                                        <animations/>
                                         <fontDescription key="fontDescription" name="SanFranciscoText-Regular" family="San Francisco Text" pointSize="65"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
+                                <animations/>
                                 <color key="backgroundColor" red="0.98431372549999996" green="0.4823529412" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="centerY" secondItem="O6b-5Y-Ih7" secondAttribute="centerY" id="Jef-Ze-O1h"/>
@@ -99,17 +106,20 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Steps" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IgY-kZ-wCL">
                                         <rect key="frame" x="20" y="36" width="104" height="48"/>
+                                        <animations/>
                                         <fontDescription key="fontDescription" name="SanFranciscoText-Regular" family="San Francisco Text" pointSize="40"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tlS-pp-Afd">
                                         <rect key="frame" x="810.5" y="21" width="39.5" height="78"/>
+                                        <animations/>
                                         <fontDescription key="fontDescription" name="SanFranciscoText-Regular" family="San Francisco Text" pointSize="65"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
+                                <animations/>
                                 <color key="backgroundColor" red="0.40784313729999999" green="0.72156862749999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="IgY-kZ-wCL" firstAttribute="leading" secondItem="xgT-Q8-spU" secondAttribute="leading" constant="20" id="8If-h8-IKD"/>
@@ -123,17 +133,20 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start Time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sQe-7w-iB2">
                                         <rect key="frame" x="20" y="36" width="189.5" height="48"/>
+                                        <animations/>
                                         <fontDescription key="fontDescription" name="SanFranciscoText-Regular" family="San Francisco Text" pointSize="40"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9:00am" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aXY-rB-KUz">
                                         <rect key="frame" x="622" y="21" width="228" height="78"/>
+                                        <animations/>
                                         <fontDescription key="fontDescription" name="SanFranciscoText-Regular" family="San Francisco Text" pointSize="65"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
+                                <animations/>
                                 <color key="backgroundColor" red="0.99607843139999996" green="0.85882352939999995" blue="0.38431372549999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="sQe-7w-iB2" firstAttribute="leading" secondItem="73l-Jc-a0k" secondAttribute="leading" constant="20" id="lTF-wS-EC8"/>
@@ -144,6 +157,7 @@
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3QH-qI-Kgb">
                                 <rect key="frame" x="283" y="562" width="34" height="30"/>
+                                <animations/>
                                 <state key="normal" title="Start">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -152,6 +166,7 @@
                                 </connections>
                             </button>
                         </subviews>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="I2h-cU-cFS" firstAttribute="top" secondItem="sQc-iY-Ssj" secondAttribute="topMargin" id="07W-sc-Nfe"/>
@@ -209,6 +224,8 @@
                         <outlet property="steps" destination="IgY-kZ-wCL" id="VO5-cT-tOE"/>
                         <outlet property="stepsConstraint" destination="rab-7m-Np9" id="hZR-l4-9YY"/>
                         <outlet property="stepsLegendConstraint" destination="8If-h8-IKD" id="r8G-2N-sHi"/>
+                        <segue destination="xag-LC-8HK" kind="show" identifier="ActiveHikeToHistoricalHikes" id="5Mc-uQ-wPX"/>
+                        <segue destination="wil-lr-zhX" kind="show" identifier="HistoryImage" id="vpd-X6-vQm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vEI-yc-1aX" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -229,6 +246,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="99" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="GLw-fe-ksw">
                                 <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HistoricalTableViewCell" rowHeight="99" id="qII-85-yvE" customClass="HistoricalTableViewCell" customModule="Hiker" customModuleProvider="target">
@@ -240,16 +258,19 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z2I-DY-Efy">
                                                     <rect key="frame" x="8" y="11" width="42" height="21"/>
+                                                    <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <animations/>
                                             <constraints>
                                                 <constraint firstAttribute="leadingMargin" secondItem="z2I-DY-Efy" secondAttribute="leading" id="WzE-gJ-f5W"/>
                                                 <constraint firstItem="z2I-DY-Efy" firstAttribute="centerY" secondItem="KF5-MK-Dnk" secondAttribute="centerY" id="e42-Hw-smt"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <animations/>
                                         <connections>
                                             <outlet property="hikeDate" destination="z2I-DY-Efy" id="98u-30-8jj"/>
                                         </connections>
@@ -261,6 +282,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="GLw-fe-ksw" secondAttribute="trailing" id="JbP-s9-nyf"/>
@@ -274,5 +296,39 @@
             </objects>
             <point key="canvasLocation" x="992" y="-555"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="b9A-Vk-raH">
+            <objects>
+                <viewController id="wil-lr-zhX" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0KI-en-uqy"/>
+                        <viewControllerLayoutGuide type="bottom" id="BSu-kz-8zt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ZDB-Z7-uEv">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="History" translatesAutoresizingMaskIntoConstraints="NO" id="xAk-N2-2Pb">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <animations/>
+                            </imageView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xAk-N2-2Pb" firstAttribute="leading" secondItem="ZDB-Z7-uEv" secondAttribute="leading" id="QWx-J5-SzY"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="xAk-N2-2Pb" secondAttribute="bottom" id="nyZ-1b-QrA"/>
+                            <constraint firstItem="xAk-N2-2Pb" firstAttribute="top" secondItem="ZDB-Z7-uEv" secondAttribute="topMargin" id="wex-Af-lzU"/>
+                            <constraint firstAttribute="trailing" secondItem="xAk-N2-2Pb" secondAttribute="trailing" id="ylg-hw-Nvy"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gmb-Ls-V0p" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="992" y="187"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="History" width="752" height="1302"/>
+    </resources>
 </document>

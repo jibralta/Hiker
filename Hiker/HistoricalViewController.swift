@@ -24,7 +24,7 @@ class HistoricalViewController: UIViewController, UITableViewDataSource, UITable
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        self.hikes = self.getStoredHikes()
+        reloadHikes()
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,6 +44,14 @@ class HistoricalViewController: UIViewController, UITableViewDataSource, UITable
         return cell
     }
     
+    func reloadHikes() {
+        self.hikes = self.getStoredHikes()
+        for (index, hike) in self.hikes!.enumerate() {
+            print("Hike \(index)")
+        }
+        self.tableView.reloadData()
+    }
+    
     func getStoredHikes() -> [Hike]? {
         let fetchRequest = NSFetchRequest(entityName: "Hike")
         do {
@@ -53,6 +61,28 @@ class HistoricalViewController: UIViewController, UITableViewDataSource, UITable
             print("Error fetching historical data \(fetchError)")
             return nil
         }
+    }
+    
+    func saveHike(name: String, totalSteps: NSNumber, totalElevation: NSNumber, startDate: NSDate, endDate: NSDate) {
+        let entity =  NSEntityDescription.entityForName("Hike", inManagedObjectContext: self.managedObjectContext)
+        
+        let hike = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: self.managedObjectContext)
+        
+        //3
+        hike.setValue(totalSteps.longValue, forKey: "steps")
+        hike.setValue(totalElevation.longValue, forKey: "altitude")
+        hike.setValue(startDate, forKey: "start_date")
+        hike.setValue(endDate, forKey: "end_date")
+        
+        //4
+        do {
+            try self.managedObjectContext.save()
+            print("Saved hike!")
+        } catch let saveError as NSError {
+            print("Error saving to CoreData: \(saveError)")
+        }
+        
+//        self.reloadHikes()
     }
 }
 
