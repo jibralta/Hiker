@@ -16,6 +16,9 @@ class HistoricalViewController: UIViewController, UITableViewDataSource, UITable
     
     var tableView: UITableView!
     var hikes: [Hike]?
+    var selectedHike: Hike?
+    
+    let segueIDToHikeDetail = "HistoricalViewToHikeDetail"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,7 +62,7 @@ class HistoricalViewController: UIViewController, UITableViewDataSource, UITable
             return fetchResults
         } catch let fetchError as NSError {
             print("Error fetching historical data \(fetchError)")
-            return nil
+            return [Hike]()
         }
     }
     
@@ -83,6 +86,19 @@ class HistoricalViewController: UIViewController, UITableViewDataSource, UITable
         }
         
 //        self.reloadHikes()
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.selectedHike = self.hikes![indexPath.row]
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == self.segueIDToHikeDetail {
+            let dVC = segue.destinationViewController as! HikeDetailViewController
+            if let selected = self.selectedHike {
+                dVC.setDetailHike(selected)
+            }
+        }
     }
 }
 

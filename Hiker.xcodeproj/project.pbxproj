@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		220B4CB71BC97F720088D3DE /* HikeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220B4CB61BC97F720088D3DE /* HikeDetailViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		2237D6B91B20D700005E48FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2237D6B81B20D700005E48FE /* AppDelegate.swift */; };
 		2237D6BB1B20D700005E48FE /* HikeControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2237D6BA1B20D700005E48FE /* HikeControlViewController.swift */; };
 		2237D6C01B20D700005E48FE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2237D6BF1B20D700005E48FE /* Images.xcassets */; };
@@ -64,6 +65,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		220B4CB61BC97F720088D3DE /* HikeDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HikeDetailViewController.swift; sourceTree = "<group>"; };
 		2237D6B31B20D700005E48FE /* Hiker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hiker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2237D6B71B20D700005E48FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2237D6B81B20D700005E48FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -218,8 +220,9 @@
 			isa = PBXGroup;
 			children = (
 				22F2CD5B1B2F8E4900832A4A /* MasterPageViewController.swift */,
-				22F2CD5D1B2FD5DB00832A4A /* HistoricalViewController.swift */,
 				2237D6BA1B20D700005E48FE /* HikeControlViewController.swift */,
+				22F2CD5D1B2FD5DB00832A4A /* HistoricalViewController.swift */,
+				220B4CB61BC97F720088D3DE /* HikeDetailViewController.swift */,
 			);
 			name = Presentation;
 			sourceTree = "<group>";
@@ -351,6 +354,7 @@
 				2237D6BB1B20D700005E48FE /* HikeControlViewController.swift in Sources */,
 				22F2CD5C1B2F8E4900832A4A /* MasterPageViewController.swift in Sources */,
 				22F2CD9E1B2FE46C00832A4A /* HistoricalHikes.xcdatamodeld in Sources */,
+				220B4CB71BC97F720088D3DE /* HikeDetailViewController.swift in Sources */,
 				22F2CD5E1B2FD5DB00832A4A /* HistoricalViewController.swift in Sources */,
 				2237D6B91B20D700005E48FE /* AppDelegate.swift in Sources */,
 			);

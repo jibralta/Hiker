@@ -176,8 +176,9 @@ class HikeControlViewController: UIViewController {
                 
                 let dict = ["hikeName": nameField.text!]
                 // TODO: confirm that all our data is as expected at this point
-//                self.performSegueWithIdentifier(self.segueIDToHistorical, sender: dict)
-                self.performSegueWithIdentifier(self.segueIDToStaticImage, sender: dict)
+                // TODO: Actually save to the CD db
+                self.performSegueWithIdentifier(self.segueIDToHistorical, sender: dict)
+//                self.performSegueWithIdentifier(self.segueIDToStaticImage, sender: dict)
             }
             let cancelAction = UIAlertAction(title: "Cancel", style: .Destructive) {
                 (action) in
