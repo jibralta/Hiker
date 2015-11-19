@@ -7,17 +7,11 @@
 //
 
 import Foundation
+import CoreData
 
-class Hike : NSObject {
-    var startDate: NSDate
-    var endDate: NSDate
-    var altitude: Int
-    var steps: Int
-    
-    init(startDate: NSDate, endDate: NSDate, altitude: Int, steps: Int) {
-        self.startDate = startDate
-        self.endDate = endDate
-        self.altitude = altitude
-        self.steps = steps
-    }
+class Hike : NSManagedObject {
+    @NSManaged var start_date: NSDate
+    @NSManaged var end_date: NSDate
+    @NSManaged var altitude: Int64
+    @NSManaged var steps: Int64
 }
