@@ -58,6 +58,12 @@ class HikeControlViewController: UIViewController {
         
         self.view.clipsToBounds = true
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        self.minuteUpdate()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -84,11 +90,13 @@ class HikeControlViewController: UIViewController {
     }
     
     func minuteUpdate() {
-        let hikeTime = NSDate().timeIntervalSinceDate(startDate)
-        let formattedHikeTime = self.formattedStringFromInterval(hikeTime)
-        print("Formatted hike time: \(formattedHikeTime)")
-        dispatch_async(dispatch_get_main_queue()) {
-            self.runningTimeActual.text = formattedHikeTime
+        if let start = startDate {
+            let hikeTime = NSDate().timeIntervalSinceDate(start)
+            let formattedHikeTime = self.formattedStringFromInterval(hikeTime)
+            print("Formatted hike time: \(formattedHikeTime)")
+            dispatch_async(dispatch_get_main_queue()) {
+                self.runningTimeActual.text = formattedHikeTime
+            }
         }
     }
     

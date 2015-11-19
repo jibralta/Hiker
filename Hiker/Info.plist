@@ -54,6 +54,17 @@
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>UIApplicationShortcutItems</key>
+	<array>
+		<dict>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>Line-black</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Start new hike</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>com.samswiches.hiker.newhike</string>
+		</dict>
+	</array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
