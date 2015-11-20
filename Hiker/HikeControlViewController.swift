@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreMotion
+import CoreData
 
 class HikeControlViewController: UIViewController {
 
@@ -40,63 +41,75 @@ class HikeControlViewController: UIViewController {
     let legendOnScreenConstant: CGFloat = 20
     let labelOffScreenShiftConstant: CGFloat = 250
     
-    var altimeter = CMAltimeter()
-    var pedometer = CMPedometer()
-    var cumulativeAltitude: NSNumber = 0
-    var maxAltitude: NSNumber = 0
-    var totalSteps: NSNumber = 0
-    var hiking = false
-    var startDate: NSDate!
-    var endDate: NSDate!
-    var updateTimer: NSTimer!
-    
     let segueIDToHistorical = "ActiveHikeToHistoricalHikes"
     let segueIDToStaticImage = "HistoryImage"
     
+    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+    var hikeManager: HikeManager!
+    var updateTimer: NSTimer!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "becameActive", name: "UIApplicationDidBecomeActiveNotification", object: nil)
         
         self.view.clipsToBounds = true
+        
+        self.hikeManager = HikeManager(managedObjectContext: self.managedObjectContext)
     }
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        self.minuteUpdate()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func becameActive() {
+        print("Became active")
+        self.refreshStatsLabels()
     }
     
     @IBAction func toggleStartStop(sender: AnyObject) {
-        if !hiking {
+        if !self.hikeManager.isHiking() {
             removeStartButton()
             setActiveLabels(true)
-            startDataCollection()
-            startDate = NSDate()
+            let startDate = self.hikeManager.startHiking()
             setStartLabel(startDate)
-            updateTimer = NSTimer.scheduledTimerWithTimeInterval(60.0, target: self, selector: "minuteUpdate", userInfo: nil, repeats: true)
+            updateTimer = NSTimer.scheduledTimerWithTimeInterval(5.0, target: self, selector: "refreshStatsLabels", userInfo: nil, repeats: true)
             startStop.setTitle("Stop", forState: .Normal)
-            hiking = true
         } else {
-//            self.setActiveLabels(false)
-            endDate = NSDate()
-            stopDataCollection()
+            let totalSteps = self.hikeManager.getTotalSteps()!
+            let flightsAscended = self.hikeManager.getFlightsAscended()!
+            let startDate = self.hikeManager.getStartDate()!
+
+            let endDate = self.hikeManager.stopHiking()
+            self.displayRecordHikeAlert(totalSteps, totalFlightsAscended: flightsAscended, startDate: startDate, endDate: endDate)
             startStop.setTitle("Start", forState: .Normal)
-            hiking = false
         }
     }
     
-    func minuteUpdate() {
-        if let start = startDate {
+    func refreshStatsLabels() {
+        if self.hikeManager.isHiking() {
+            print("Refreshing labels")
+            dispatch_async(dispatch_get_main_queue()) {
+                self.refreshActiveTime()
+                self.refreshStepsLabel()
+                self.refreshAltitudeLabel()
+            }
+        }
+    }
+    
+    func refreshActiveTime() {
+        if let start = self.hikeManager.getStartDate() {
             let hikeTime = NSDate().timeIntervalSinceDate(start)
             let formattedHikeTime = self.formattedStringFromInterval(hikeTime)
-            print("Formatted hike time: \(formattedHikeTime)")
-            dispatch_async(dispatch_get_main_queue()) {
-                self.runningTimeActual.text = formattedHikeTime
-            }
+            self.runningTimeActual.text = formattedHikeTime
+        }
+    }
+    
+    func refreshStepsLabel() {
+        if let steps = self.hikeManager.getTotalSteps() {
+            self.steps.text = "\(steps.longValue)"
+        }
+    }
+    
+    func refreshAltitudeLabel() {
+        if let flightsAscended = self.hikeManager.getFlightsAscended() {
+            self.altitude.text = "\(flightsAscended.longValue)fl"
         }
     }
     
@@ -151,42 +164,15 @@ class HikeControlViewController: UIViewController {
         }
     }
     
-    func startDataCollection() {
-        initiateAltitudeCollection()
-        initiatePedometerCollection()
-    }
-    
-    func stopDataCollection() {
-        ceaseAltitudeCollection()
-        ceasePedometerCollection()
-        self.updateTimer.invalidate()
-        self.pedometer.queryPedometerDataFromDate(self.startDate, toDate: self.endDate) {
-            (pedometerData, error) in
-            if error != nil {
-                print("Error! ", error)
-            } else {
-                let steps = pedometerData?.numberOfSteps
-                print("Total steps: ", steps)
-            }
-        }
-        
-        displaySaveAlert()
-    }
-    
-    func displaySaveAlert() {
+    func displayRecordHikeAlert(totalSteps: NSNumber, totalFlightsAscended: NSNumber, startDate: NSDate, endDate: NSDate) {
         dispatch_async(dispatch_get_main_queue()) {
             let alert = UIAlertController(title: "Save Hike", message: "Would you like to name and save this hike?", preferredStyle: .Alert)
             let saveAction = UIAlertAction(title: "Save", style: .Default) {
                 (action) in
                 print("Saving!")
                 let nameField = alert.textFields![0] as UITextField
-                print("nameField: \(nameField.text)")
-                
-                let dict = ["hikeName": nameField.text!]
-                // TODO: confirm that all our data is as expected at this point
-                // TODO: Actually save to the CD db
-                self.performSegueWithIdentifier(self.segueIDToHistorical, sender: dict)
-//                self.performSegueWithIdentifier(self.segueIDToStaticImage, sender: dict)
+                self.hikeManager.recordHike(nameField.text!, totalSteps: totalSteps, totalElevation: totalFlightsAscended, startDate: startDate, endDate: endDate)
+                self.performSegueWithIdentifier(self.segueIDToHistorical, sender: nil)
             }
             let cancelAction = UIAlertAction(title: "Cancel", style: .Destructive) {
                 (action) in
@@ -202,80 +188,6 @@ class HikeControlViewController: UIViewController {
             alert.addAction(cancelAction)
             
             self.presentViewController(alert, animated: true, completion: nil)
-        }
-    }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == self.segueIDToHistorical {
-            if let dict = sender as? Dictionary<String, String> {
-                let hikeName = dict["hikeName"]
-                print("Name: \(hikeName)")
-                
-                let vc = segue.destinationViewController as! HistoricalViewController
-                vc.saveHike(hikeName!, totalSteps: self.totalSteps, totalElevation: self.maxAltitude, startDate: self.startDate, endDate: self.endDate)
-            }
-        }
-    }
-    
-    func initiateAltitudeCollection() {
-        if CMAltimeter.isRelativeAltitudeAvailable() {
-            self.altimeter.startRelativeAltitudeUpdatesToQueue(NSOperationQueue.mainQueue()) {
-                [weak self] (altitudeData, error) in
-                if error != nil {
-                    print("Error starting altitude updates")
-                } else {
-                    if altitudeData!.relativeAltitude == 0 {
-                        print("First event!")
-                    } else {
-                        print("Altitude changed: \(altitudeData!.relativeAltitude)")
-                        if altitudeData!.relativeAltitude.doubleValue > self!.maxAltitude.doubleValue {
-                            self!.maxAltitude = altitudeData!.relativeAltitude
-                        }
-                    }
-                }
-            }
-        }
-    }
-    
-    func ceaseAltitudeCollection() {
-        if CMAltimeter.isRelativeAltitudeAvailable() {
-            self.altimeter.stopRelativeAltitudeUpdates()
-        }
-        print("Max altitude: \(maxAltitude)")
-    }
-    
-    func initiatePedometerCollection() {
-        if CMPedometer.isStepCountingAvailable() {
-            self.pedometer.startPedometerUpdatesFromDate(NSDate()) {
-                (pedometerData, error) in
-                if error != nil {
-                    print("Error starting pedometer updates!")
-                } else {
-                    print("Number of steps: \(pedometerData!.numberOfSteps)")
-                    dispatch_async(dispatch_get_main_queue()) {
-                        self.steps.text = "\(pedometerData!.numberOfSteps)"
-                    }
-                }
-            }
-        }
-    }
-    
-    func ceasePedometerCollection() {
-        if CMPedometer.isStepCountingAvailable() {
-            self.pedometer.stopPedometerUpdates()
-            print("start: \(startDate)")
-            print("end: \(endDate)")
-            self.pedometer.queryPedometerDataFromDate(startDate, toDate: endDate) {
-                (pedometerData, error) in
-                if error != nil {
-                    print("Error getting range of pedometer values")
-                } else {
-                    print("Total steps: \(pedometerData!.numberOfSteps)")
-                    dispatch_async(dispatch_get_main_queue()) {
-//                        self!.totalSteps.text = "\(pedometerData.numberOfSteps)"
-                    }
-                }
-            }
         }
     }
     

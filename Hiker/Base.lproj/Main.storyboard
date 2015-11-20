@@ -118,7 +118,7 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0ft" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O6b-5Y-Ih7">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="0fl" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O6b-5Y-Ih7">
                                         <rect key="frame" x="761.5" y="21" width="88.5" height="78"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" name="SanFranciscoText-Regular" family="San Francisco Text" pointSize="65"/>
@@ -255,7 +255,7 @@
                         <outlet property="startTimeActual" destination="aXY-rB-KUz" id="b11-oa-e4C"/>
                         <outlet property="startTimeConstraint" destination="yEv-Dd-bwI" id="ynF-t3-rEO"/>
                         <outlet property="startTimeLegendConstraint" destination="lTF-wS-EC8" id="THZ-44-Ff0"/>
-                        <outlet property="steps" destination="IgY-kZ-wCL" id="VO5-cT-tOE"/>
+                        <outlet property="steps" destination="tlS-pp-Afd" id="PWi-pT-p4A"/>
                         <outlet property="stepsConstraint" destination="rab-7m-Np9" id="hZR-l4-9YY"/>
                         <outlet property="stepsLegendConstraint" destination="8If-h8-IKD" id="r8G-2N-sHi"/>
                         <segue destination="xag-LC-8HK" kind="show" identifier="ActiveHikeToHistoricalHikes" id="5Mc-uQ-wPX"/>
@@ -345,9 +345,65 @@
                     <view key="view" contentMode="scaleToFill" id="mJT-31-FZL">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7nQ-z2-fn1">
+                                <rect key="frame" x="279" y="20" width="42" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Start" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="At4-3g-aee">
+                                <rect key="frame" x="279" y="63" width="42" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="End" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mzw-2M-Cr2">
+                                <rect key="frame" x="279" y="98" width="42" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Steps" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F6U-1n-Ycf">
+                                <rect key="frame" x="279" y="133" width="42" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Altitude" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MJg-xz-o6Z">
+                                <rect key="frame" x="279" y="179" width="42" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="MJg-xz-o6Z" firstAttribute="top" secondItem="F6U-1n-Ycf" secondAttribute="bottom" constant="20" id="7so-a2-beS"/>
+                            <constraint firstItem="mzw-2M-Cr2" firstAttribute="centerX" secondItem="At4-3g-aee" secondAttribute="centerX" id="JNt-t0-Ond"/>
+                            <constraint firstItem="F6U-1n-Ycf" firstAttribute="top" secondItem="mzw-2M-Cr2" secondAttribute="bottom" constant="20" id="K8o-tD-M89"/>
+                            <constraint firstItem="7nQ-z2-fn1" firstAttribute="top" secondItem="Jnk-pe-Xdq" secondAttribute="bottom" id="O3F-UU-OE4"/>
+                            <constraint firstItem="mzw-2M-Cr2" firstAttribute="top" secondItem="At4-3g-aee" secondAttribute="bottom" constant="20" id="aXg-9l-CJU"/>
+                            <constraint firstItem="7nQ-z2-fn1" firstAttribute="centerX" secondItem="mJT-31-FZL" secondAttribute="centerX" id="gyR-OL-7QA"/>
+                            <constraint firstItem="MJg-xz-o6Z" firstAttribute="centerX" secondItem="F6U-1n-Ycf" secondAttribute="centerX" id="k05-9u-ugt"/>
+                            <constraint firstItem="At4-3g-aee" firstAttribute="top" secondItem="7nQ-z2-fn1" secondAttribute="bottom" constant="20" id="k81-eI-PII"/>
+                            <constraint firstItem="At4-3g-aee" firstAttribute="centerX" secondItem="7nQ-z2-fn1" secondAttribute="centerX" id="o18-zl-abT"/>
+                            <constraint firstItem="F6U-1n-Ycf" firstAttribute="centerX" secondItem="mzw-2M-Cr2" secondAttribute="centerX" id="rc3-rj-JLe"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="altitude" destination="MJg-xz-o6Z" id="APT-3q-vcQ"/>
+                        <outlet property="end" destination="mzw-2M-Cr2" id="c7F-sU-KRv"/>
+                        <outlet property="name" destination="7nQ-z2-fn1" id="SCx-Q4-EVc"/>
+                        <outlet property="start" destination="At4-3g-aee" id="rqj-qR-DgA"/>
+                        <outlet property="steps" destination="F6U-1n-Ycf" id="1f7-kF-qWl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j48-gz-mf9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

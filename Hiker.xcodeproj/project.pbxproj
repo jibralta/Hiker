@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		220B4CB71BC97F720088D3DE /* HikeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220B4CB61BC97F720088D3DE /* HikeDetailViewController.swift */; };
+		221D93CC1BFF9ABE004497FD /* HikeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221D93CB1BFF9ABE004497FD /* HikeManager.swift */; };
 		2237D6B91B20D700005E48FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2237D6B81B20D700005E48FE /* AppDelegate.swift */; };
 		2237D6BB1B20D700005E48FE /* HikeControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2237D6BA1B20D700005E48FE /* HikeControlViewController.swift */; };
 		2237D6C01B20D700005E48FE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2237D6BF1B20D700005E48FE /* Images.xcassets */; };
@@ -67,6 +68,7 @@
 
 /* Begin PBXFileReference section */
 		220B4CB61BC97F720088D3DE /* HikeDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HikeDetailViewController.swift; sourceTree = "<group>"; };
+		221D93CB1BFF9ABE004497FD /* HikeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HikeManager.swift; sourceTree = "<group>"; };
 		2237D6B31B20D700005E48FE /* Hiker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hiker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2237D6B71B20D700005E48FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2237D6B81B20D700005E48FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -123,6 +125,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		221D93CA1BFF9AB0004497FD /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				221D93CB1BFF9ABE004497FD /* HikeManager.swift */,
+			);
+			name = Logic;
+			sourceTree = "<group>";
+		};
 		2237D6AA1B20D700005E48FE = {
 			isa = PBXGroup;
 			children = (
@@ -144,6 +154,7 @@
 		2237D6B51B20D700005E48FE /* Hiker */ = {
 			isa = PBXGroup;
 			children = (
+				221D93CA1BFF9AB0004497FD /* Logic */,
 				22F2CDA01B2FE49800832A4A /* Presentation */,
 				22F2CD9F1B2FE48000832A4A /* Model */,
 				2237D6B81B20D700005E48FE /* AppDelegate.swift */,
@@ -362,6 +373,7 @@
 				220B4CB71BC97F720088D3DE /* HikeDetailViewController.swift in Sources */,
 				22F2CD5E1B2FD5DB00832A4A /* HistoricalViewController.swift in Sources */,
 				2237D6B91B20D700005E48FE /* AppDelegate.swift in Sources */,
+				221D93CC1BFF9ABE004497FD /* HikeManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

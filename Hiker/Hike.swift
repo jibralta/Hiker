@@ -10,8 +10,10 @@ import Foundation
 import CoreData
 
 class Hike : NSManagedObject {
+    @NSManaged var name: String
     @NSManaged var start_date: NSDate
     @NSManaged var end_date: NSDate
     @NSManaged var altitude: Int64
     @NSManaged var steps: Int64
+    @NSManaged var image: NSData?
 }

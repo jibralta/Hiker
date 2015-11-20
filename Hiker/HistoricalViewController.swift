@@ -13,6 +13,7 @@ class HistoricalViewController: UIViewController, UITableViewDataSource, UITable
     
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+    var hikeManager: HikeManager!
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -24,6 +25,7 @@ class HistoricalViewController: UIViewController, UITableViewDataSource, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.hikeManager = HikeManager(managedObjectContext: self.managedObjectContext)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -42,14 +44,15 @@ class HistoricalViewController: UIViewController, UITableViewDataSource, UITable
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("HistoricalTableViewCell", forIndexPath: indexPath) as! HistoricalTableViewCell
+        let hike = self.hikes![indexPath.row]
         
-        cell.hikeDate.text = "Hike #\(indexPath.row)"
+        cell.hikeDate.text = hike.name
         
         return cell
     }
     
     func reloadHikes() {
-        self.hikes = self.getStoredHikes()
+        self.hikes = self.hikeManager.getRecordedHikes()
         print(self.hikes)
         for (index, hike) in self.hikes!.enumerate() {
             print("Hike \(index)")
@@ -57,37 +60,9 @@ class HistoricalViewController: UIViewController, UITableViewDataSource, UITable
         self.tableView.reloadData()
     }
     
-    func getStoredHikes() -> [Hike] {
-        let fetchRequest = NSFetchRequest(entityName: "Hike")
-        do {
-            let fetchResults = try self.managedObjectContext.executeFetchRequest(fetchRequest) as! [Hike]
-            return fetchResults
-        } catch let fetchError as NSError {
-            print("Error fetching historical data \(fetchError)")
-            return [Hike]()
-        }
-    }
-    
-    func saveHike(name: String, totalSteps: NSNumber, totalElevation: NSNumber, startDate: NSDate, endDate: NSDate) {
-        let hike = NSEntityDescription.insertNewObjectForEntityForName("Hike", inManagedObjectContext: self.managedObjectContext) as! Hike
-        
-        //3
-        hike.steps = totalSteps.longLongValue
-        hike.altitude = totalElevation.longLongValue
-        hike.start_date = startDate
-        hike.end_date = endDate
-        
-        //4
-        do {
-            try self.managedObjectContext.save()
-            print("Saved hike!")
-        } catch let saveError as NSError {
-            print("Error saving to CoreData: \(saveError)")
-        }
-    }
-    
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
         self.selectedHike = self.hikes![indexPath.row]
+        return indexPath
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
