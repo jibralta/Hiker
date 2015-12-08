@@ -6,9 +6,9 @@ A small app to accompany you on your hikes! Save pedometer, altimeter, and date 
 
 The following are likely files of interest to those browsing the source code:
 
-* HikeControlViewController.swift
-* HikeManager.swift
-* SelectImageCropViewController.swift
+* [HikeControlViewController.swift](https://github.com/syoutsey/Hiker/tree/master/Hiker/HikeControlViewController.swift)
+* [HikeManager.swift](https://github.com/syoutsey/Hiker/tree/master/Hiker/HikeManager.swift)
+* [SelectImageCropViewController.swift](https://github.com/syoutsey/Hiker/tree/master/Hiker/HikeManager.swift)
 
 ## Screenshots
 
