@@ -8,7 +8,7 @@ The following are likely files of interest to those browsing the source code:
 
 * [HikeControlViewController.swift](https://github.com/syoutsey/Hiker/tree/master/Hiker/HikeControlViewController.swift)
 * [HikeManager.swift](https://github.com/syoutsey/Hiker/tree/master/Hiker/HikeManager.swift)
-* [SelectImageCropViewController.swift](https://github.com/syoutsey/Hiker/tree/master/Hiker/HikeManager.swift)
+* [SelectImageCropViewController.swift](https://github.com/syoutsey/Hiker/tree/master/Hiker/SelectImageCropViewController.swift)
 
 ## Screenshots
 
