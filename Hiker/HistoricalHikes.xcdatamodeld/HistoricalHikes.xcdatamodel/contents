@@ -3,7 +3,7 @@
     <entity name="Hike" representedClassName=".Hike" syncable="YES">
         <attribute name="altitude" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="end_date" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="image" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="imageData" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="start_date" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="steps" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>

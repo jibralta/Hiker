@@ -56,7 +56,13 @@ class HikeManager : NSObject {
     }
     
     func addImageToHike(hike: Hike, imageData: NSData) {
+        hike.imageData = imageData
         self.managedObjectContext.refreshObject(hike, mergeChanges: true)
+        do {
+            try self.managedObjectContext.save()
+        } catch {
+            print("Error saving!")
+        }
     }
     
     func startHiking() -> NSDate {
@@ -88,7 +94,7 @@ class HikeManager : NSObject {
     }
     
     // Could we combine these two functions into one? Or do we need to separate if data is unavailable?
-    func getTotalSteps() -> NSNumber? {
+    func getTotalStepsSync() -> NSNumber? {
         if let start = self.startDate {
             let sema = dispatch_semaphore_create(0)
             var retVal: NSNumber!
@@ -112,7 +118,7 @@ class HikeManager : NSObject {
         }
     }
     
-    func getFlightsAscended() -> NSNumber? {
+    func getFlightsAscendedSync() -> NSNumber? {
         if let start = self.startDate {
             let sema = dispatch_semaphore_create(0)
             var retVal: NSNumber!

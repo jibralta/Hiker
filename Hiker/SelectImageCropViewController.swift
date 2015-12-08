@@ -57,7 +57,10 @@ class SelectImageCropViewController: UIViewController {
         self.view.addConstraint(NSLayoutConstraint(item: self.bottomView, attribute: .Top, relatedBy: .Equal, toItem: self.slideView, attribute: .Bottom, multiplier: 1.0, constant: 0))
         
         self.view.layoutIfNeeded()
-        
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
         self.view.bringSubviewToFront(self.setViewButton)
     }
     
@@ -92,10 +95,18 @@ class SelectImageCropViewController: UIViewController {
         UIGraphicsEndImageContext()
         
         let slideViewFrame = self.slideView.frame
+        // TODO: unhardcode these values
         let newFrame = CGRectMake(slideViewFrame.origin.x, 567-slideViewFrame.origin.y, 375, 100)
         let ci = CIImage(image: scaledImage)!
         let reduced = ci.imageByCroppingToRect(newFrame)
         print("Reduced!")
+        if let parent = self.presentingViewController as? HikeDetailViewController {
+            let ctx = CIContext(options: nil)
+            let cgImg = ctx.createCGImage(reduced, fromRect: reduced.extent)
+            let img = UIImage(CGImage: cgImg)
+            parent.storeImage(img)
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }
     }
 }
 

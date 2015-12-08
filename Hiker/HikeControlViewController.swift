@@ -72,8 +72,8 @@ class HikeControlViewController: UIViewController {
             updateTimer = NSTimer.scheduledTimerWithTimeInterval(5.0, target: self, selector: "refreshStatsLabels", userInfo: nil, repeats: true)
             startStop.setTitle("Stop", forState: .Normal)
         } else {
-            let totalSteps = self.hikeManager.getTotalSteps()!
-            let flightsAscended = self.hikeManager.getFlightsAscended()!
+            let totalSteps = self.hikeManager.getTotalStepsSync()!
+            let flightsAscended = self.hikeManager.getFlightsAscendedSync()!
             let startDate = self.hikeManager.getStartDate()!
 
             let endDate = self.hikeManager.stopHiking()
@@ -96,28 +96,21 @@ class HikeControlViewController: UIViewController {
     func refreshActiveTime() {
         if let start = self.hikeManager.getStartDate() {
             let hikeTime = NSDate().timeIntervalSinceDate(start)
-            let formattedHikeTime = self.formattedStringFromInterval(hikeTime)
+            let formattedHikeTime = UIUtility.formattedStringFromInterval(hikeTime)
             self.runningTimeActual.text = formattedHikeTime
         }
     }
     
     func refreshStepsLabel() {
-        if let steps = self.hikeManager.getTotalSteps() {
+        if let steps = self.hikeManager.getTotalStepsSync() {
             self.steps.text = "\(steps.longValue)"
         }
     }
     
     func refreshAltitudeLabel() {
-        if let flightsAscended = self.hikeManager.getFlightsAscended() {
+        if let flightsAscended = self.hikeManager.getFlightsAscendedSync() {
             self.altitude.text = "\(flightsAscended.longValue)fl"
         }
-    }
-    
-    func formattedStringFromInterval(interval: NSTimeInterval) -> String {
-        let interval = Int(interval)
-        let minutes = (interval / 60) % 60
-        let hours = (interval / 3600)
-        return String(format: "%02d:%02d", hours, minutes)
     }
     
     func setActiveLabels(active: Bool) {

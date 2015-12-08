@@ -32,11 +32,6 @@ class HistoricalViewController: UIViewController, UITableViewDataSource, UITable
         super.viewDidAppear(animated)
         reloadHikes()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return (self.hikes != nil) ? self.hikes!.count : 0
@@ -47,6 +42,9 @@ class HistoricalViewController: UIViewController, UITableViewDataSource, UITable
         let hike = self.hikes![indexPath.row]
         
         cell.hikeDate.text = hike.name
+        if let imageData = hike.imageData {
+            cell.hikeImage.image = UIImage(data: imageData)
+        }
         
         return cell
     }
@@ -77,4 +75,5 @@ class HistoricalViewController: UIViewController, UITableViewDataSource, UITable
 
 class HistoricalTableViewCell : UITableViewCell {
     @IBOutlet weak var hikeDate: UILabel!
+    @IBOutlet weak var hikeImage: UIImageView!
 }
