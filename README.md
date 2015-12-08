@@ -1,6 +1,8 @@
 # Hiker
 
-A small app to accompany you on your hikes! Save pedometer, altimeter, and date information about your hikes for later review. Also contains the ability to associate an image with the hike.
+A small app to accompany you on your hikes! Save pedometer, altimeter, and date information about your hikes for later review. Also contains the ability to associate an image with the hike. There's still plenty to polish, fix, and complete about this app so it's not intended to be installed and used in production.
+
+## Screenshots
 
 ![Display UI](images/img_1.png)
 ![Active UI](images/img_2.png)
